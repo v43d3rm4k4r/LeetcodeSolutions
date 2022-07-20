@@ -5,7 +5,7 @@ import java.util.logging.ConsoleHandler;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 import java.util.logging.SimpleFormatter;
-import leetcode.solutions.concrete.Solution_1_Two_Sum;
+import leetcode.solutions.concrete.*;
 
 // TODO: measure solutions time
 // TODO: fix logger or use System.out
@@ -18,13 +18,10 @@ import leetcode.solutions.concrete.Solution_1_Two_Sum;
 
 public class SolutionRunner {
 
-    private static final List<LeetcodeSolution> _solutions;
+    private static HashMap<Integer, SolutionsFactory<LeetcodeSolution>> _solutionsFactories;
     private static final Logger _LOGGER = Logger.getLogger(SolutionRunner.class.getName());
 
     static {
-        _solutions = Arrays.asList(Solution_1_Two_Sum.instance() // TODO: other solutions
-        );
-
         _LOGGER.setLevel(Level.FINEST);
         var consoleHandler = new ConsoleHandler();
         _LOGGER.addHandler(consoleHandler);
@@ -32,27 +29,18 @@ public class SolutionRunner {
         consoleHandler.setFormatter(new SimpleFormatter());
     }
 
-    private static void runAll() {
-        if (_solutions.isEmpty()) {
-            return;
-        }
-        for (var solution : _solutions) {
-            _LOGGER.log(Level.FINE, "Running {0}", solution.toString());
-            solution.run();
-        }
-    }
-
     public static void main(String[] args) {
         _LOGGER.log(Level.FINE, "Started with args: {0}", Arrays.toString(args));
+        initSolutions();
         boolean solutionFound = false;
         for (String arg : args) {
             if (arg.contains("--runAll")) {
-                if (!_solutions.isEmpty()) {
+                if (!_solutionsFactories.isEmpty()) {
                     try {
                         runAll();
                     } catch (SolutionValidationException exception) {
-                        _LOGGER.log(Level.SEVERE, exception.getMessage() + ": solutionID: " + exception.getSolutionID() +
-                                "solutionName: " + exception.getSolutionName());
+                        _LOGGER.log(Level.SEVERE, "{0}: solutionID: {1} solutionName: {2}",
+                                new Object[] {exception.getMessage(), exception.getSolutionID(), exception.getSolutionName()});
                     }
                     solutionFound = true;
                     break;
@@ -60,15 +48,15 @@ public class SolutionRunner {
                 _LOGGER.log(Level.FINE, "There is no solutions"); // never should be here
                 break;
             } else if (arg.contains("--run=")) {
-                var solutionToRun = Integer.parseInt(arg.substring(5));
-                // TODO: run the specified solution
-                var solution = _solutions.get(solutionToRun);
+                var solutionToRun = Integer.parseInt(arg.substring(6));
+                var solution = _solutionsFactories.get(solutionToRun);
+                if (solution == null) break;
                 _LOGGER.log(Level.FINE, "Running {0}", solution.toString());
                 try {
-                    solution.run();
+                    solution.create().run();
                 } catch (SolutionValidationException exception) {
-                    _LOGGER.log(Level.SEVERE, exception.getMessage() + ": solutionID: " + exception.getSolutionID() +
-                            "solutionName: " + exception.getSolutionName());
+                    _LOGGER.log(Level.SEVERE, "{0}: solutionID: {1} solutionName: {2}",
+                                new Object[] {exception.getMessage(), exception.getSolutionID(), exception.getSolutionName()});
                 }
 
                 solutionFound = true;
@@ -78,6 +66,22 @@ public class SolutionRunner {
         if (!solutionFound) {
             _LOGGER.log(Level.FINE, "No such problem to solve");
         }
+    }
+
+    private static void runAll() {
+        if (_solutionsFactories.isEmpty()) {
+            return;
+        }
+        for (var solution : _solutionsFactories.entrySet()) {
+            _LOGGER.log(Level.FINE, "Running {0}", solution.toString());
+            solution.getValue().create().run();
+        }
+    }
+
+    private static void initSolutions() {
+        _solutionsFactories = new HashMap<>();
+        _solutionsFactories.put(1, Solution_1_Two_Sum::new);
+        _solutionsFactories.put(9, Solution_9_Palindrome_Number::new);
     }
 }
 

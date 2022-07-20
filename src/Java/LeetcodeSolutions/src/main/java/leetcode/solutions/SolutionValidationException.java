@@ -1,7 +1,7 @@
 package leetcode.solutions;
 
 /**
- * {@code SolutionValidationException} is the exception of class that additionally contains the solution information.
+ * {@code SolutionValidationException} is the exception class that additionally contains the solution information.
  * @Author: Daniil Kuprianov
  */
 

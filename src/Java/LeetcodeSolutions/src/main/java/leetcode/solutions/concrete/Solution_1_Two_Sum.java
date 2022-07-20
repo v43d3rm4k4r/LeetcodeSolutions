@@ -22,6 +22,8 @@ import java.util.HashMap;
 
 public class Solution_1_Two_Sum extends LeetcodeSolution {
 
+    public Solution_1_Two_Sum() { super(1, "Two Sum", EASY); }
+
     @ProblemSolution
     private int[] twoSum(int[] nums, int target) {
         var numToIndex = new HashMap<Integer, Integer>();
@@ -44,17 +46,6 @@ public class Solution_1_Two_Sum extends LeetcodeSolution {
         var nums = new int[] {3,2,4};
         var solution = twoSum(nums, 6);
         var test = Arrays.compare(solution, new int[]{1, 2});
-        ASSERT_TRUE(Arrays.compare(solution, new int[]{1, 2}) == 0);
-    }
-
-    private Solution_1_Two_Sum(int solutionID, String solutionName, ProblemDifficulty problemDifficulty) {
-        super(solutionID, solutionName, problemDifficulty);
-    }
-
-    public static synchronized LeetcodeSolution instance() {
-        if (_INSTANCE == null) {
-            _INSTANCE = new Solution_1_Two_Sum(1, "Two Sum", EASY);
-        }
-        return _INSTANCE;
+        ASSERT_EQ(Arrays.compare(solution, new int[]{1, 2}), 0);
     }
 }
