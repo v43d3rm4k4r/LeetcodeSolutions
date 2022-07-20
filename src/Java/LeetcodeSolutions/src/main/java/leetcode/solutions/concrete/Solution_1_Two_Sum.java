@@ -3,6 +3,7 @@ package leetcode.solutions.concrete;
 import leetcode.solutions.*;
 import static leetcode.solutions.ProblemDifficulty.*;
 import static leetcode.solutions.SolutionValidator.*;
+import static leetcode.solutions.Complexity.*;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -24,18 +25,15 @@ public class Solution_1_Two_Sum extends LeetcodeSolution {
 
     public Solution_1_Two_Sum() { super(1, "Two Sum", EASY); }
 
-    @ProblemSolution
+    @ProblemSolution(complexity = O_N)
     private int[] twoSum(int[] nums, int target) {
         var numToIndex = new HashMap<Integer, Integer>();
         for (var i = 0; i < nums.length; ++i) {
-
             int rem = target - nums[i];
-
-        if (numToIndex.containsKey(rem)) {
-            return new int[] {numToIndex.get(rem), i};
-        }
-
-        numToIndex.put(nums[i], i);
+            if (numToIndex.containsKey(rem)) {
+                return new int[] {numToIndex.get(rem), i};
+            }
+            numToIndex.put(nums[i], i);
         }
         return new int[] {-1, -1};
     }
@@ -46,6 +44,6 @@ public class Solution_1_Two_Sum extends LeetcodeSolution {
         var nums = new int[] {3,2,4};
         var solution = twoSum(nums, 6);
         var test = Arrays.compare(solution, new int[]{1, 2});
-        ASSERT_EQ(Arrays.compare(solution, new int[]{1, 2}), 0);
+        ASSERT_EQ(Arrays.compare(solution,  new int[]{1, 2}), 0);
     }
 }
