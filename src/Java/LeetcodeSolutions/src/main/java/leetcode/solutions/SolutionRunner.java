@@ -1,63 +1,77 @@
 package leetcode.solutions;
 
-import java.util.Arrays;
-import java.util.TreeMap;
+import java.util.*;
+import java.util.logging.ConsoleHandler;
 import java.util.logging.Logger;
 import java.util.logging.Level;
+import java.util.logging.SimpleFormatter;
+import leetcode.solutions.concrete.Solution_1_Two_Sum;
+
+// TODO: measure solutions time
+
 
 public class SolutionRunner {
-    private static TreeMap<Integer, LeetcodeSolution> _solutions;
+
+    private static final List<LeetcodeSolution> _solutions;
     private static final Logger _LOGGER = Logger.getLogger(SolutionRunner.class.getName());
 
     static {
-        TreeMap<Integer, LeetcodeSolution> _solutions = new TreeMap<>(/*Comparator.comparingInt()*/);
+        _solutions = Arrays.asList(Solution_1_Two_Sum.instance() // TODO: other solutions
+        );
+
         _LOGGER.setLevel(Level.FINEST);
+        var consoleHandler = new ConsoleHandler();
+        _LOGGER.addHandler(consoleHandler);
+        _LOGGER.setLevel(Level.ALL);
+        consoleHandler.setFormatter(new SimpleFormatter());
     }
 
-    private static boolean runAll() {
+    private static void runAll() {
         if (_solutions.isEmpty()) {
-            return false;
+            return;
         }
-
-        for (var solutionEntry : _solutions.entrySet()) {
-            var solution = solutionEntry.getValue();
+        for (var solution : _solutions) {
             _LOGGER.log(Level.FINE, "Running {0}", solution.toString());
             solution.run();
         }
-        return true;
     }
 
     public static void main(String[] args) {
         _LOGGER.log(Level.FINE, "Started with args: {0}", Arrays.toString(args));
         boolean solutionFound = false;
-        for (var i = 0; i < args.length; ++i) {
-            if (args[i].contains("--runAll")) {
-                runAll();
-                solutionFound = true;
-                break;
-            } else if (args[i].contains("--run=")) {
-                var solutionToRun = Integer.parseInt(args[i].substring(5));
-                // TODO: run the specified solution
-                var solutionEntry = _solutions.ceilingEntry(solutionToRun); // !!
-                if (solutionEntry != null) {
-                    var solution = solutionEntry.getValue();
-                    _LOGGER.log(Level.FINE, "Running ", solution.toString());
-                    solution.run();
+        for (String arg : args) {
+            if (arg.contains("--runAll")) {
+                if (!_solutions.isEmpty()) {
+                    try {
+                        runAll();
+                    } catch (SolutionValidationException exception) {
+                        _LOGGER.log(Level.SEVERE, exception.getMessage() + ": solutionID: " + exception.getSolutionID() +
+                                "solutionName: " + exception.getSolutionName());
+                    }
                     solutionFound = true;
                     break;
                 }
+                _LOGGER.log(Level.FINE, "There is no solutions"); // never should be here
+                break;
+            } else if (arg.contains("--run=")) {
+                var solutionToRun = Integer.parseInt(arg.substring(5));
+                // TODO: run the specified solution
+                var solution = _solutions.get(solutionToRun);
+                _LOGGER.log(Level.FINE, "Running {0}", solution.toString());
+                try {
+                    solution.run();
+                } catch (SolutionValidationException exception) {
+                    _LOGGER.log(Level.SEVERE, exception.getMessage() + ": solutionID: " + exception.getSolutionID() +
+                            "solutionName: " + exception.getSolutionName());
+                }
+
+                solutionFound = true;
+                break;
             }
         }
         if (!solutionFound) {
             _LOGGER.log(Level.FINE, "No such problem to solve");
         }
-    }
-
-    public static void registerSolution(LeetcodeSolution solution) {
-        if (solution == null) {
-            return;
-        }
-        _solutions.put(solution.getSolutionID(), solution);
     }
 }
 
