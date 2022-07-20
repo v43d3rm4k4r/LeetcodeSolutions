@@ -8,7 +8,13 @@ import java.util.logging.SimpleFormatter;
 import leetcode.solutions.concrete.Solution_1_Two_Sum;
 
 // TODO: measure solutions time
+// TODO: fix logger or use System.out
 
+/**
+ * {@code SolutionRunner} is the main class which hold solutions list and provides the solutions tests.
+ * User can specify concrete solution to run ("--run=X" where X is a solution ID), or run all solutions one by one ("--runAll").
+ * @Author: Daniil Kuprianov
+ */
 
 public class SolutionRunner {
 

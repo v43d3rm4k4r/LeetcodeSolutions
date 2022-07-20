@@ -1,13 +1,8 @@
 package leetcode.solutions;
 
 /**
- * @Problem: Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
- * You may assume that each input would have exactly one solution, and you may not use the same element twice.
- * You can return the answer in any order.
- * <p>
- * //@Solution:
- * @Solution:
- * @Complexity:
+ * {@code LeetcodeSolution} is the superclass of all solutions and includes common info about each solution.
+ *  It has reference on itself so concrete solutions will be implemented as singletons.
  * @Author: Daniil Kuprianov
  */
 

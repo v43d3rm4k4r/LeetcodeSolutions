@@ -5,14 +5,17 @@ import static leetcode.solutions.ProblemDifficulty.*;
 import static leetcode.solutions.SolutionValidator.*;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * @Problem: Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
  * You may assume that each input would have exactly one solution, and you may not use the same element twice.
  * You can return the answer in any order.
- * <p>
- * @Solution: // TODO
+ * @Solution:
+ * <ul>
+ * <li>Subtract it from target and record what's left.
+ * <li>If the remainder is present in num_to_index, return the two indices.
+ * <li>Otherwise record the current number-index pair into the map and continue.
+ * </ul>
  * @Complexity: O(N)
  * @Author: Daniil Kuprianov
  */
@@ -20,17 +23,17 @@ import java.util.List;
 public class Solution_1_Two_Sum extends LeetcodeSolution {
 
     @ProblemSolution
-    private int[] twoSum(List<Integer> nums, int target) {
+    private int[] twoSum(int[] nums, int target) {
         var numToIndex = new HashMap<Integer, Integer>();
-        for (var i = 0; i < nums.size(); ++i) {
+        for (var i = 0; i < nums.length; ++i) {
 
-            int rem = target - nums.get(i);
+            int rem = target - nums[i];
 
         if (numToIndex.containsKey(rem)) {
             return new int[] {numToIndex.get(rem), i};
         }
 
-        numToIndex.put(nums.get(i), i);
+        numToIndex.put(nums[i], i);
         }
         return new int[] {-1, -1};
     }
@@ -38,10 +41,10 @@ public class Solution_1_Two_Sum extends LeetcodeSolution {
     @Override
     @ProblemInputData
     public void run() {
-        var nums = Arrays.asList(3,2,4);
+        var nums = new int[] {3,2,4};
         var solution = twoSum(nums, 6);
         var test = Arrays.compare(solution, new int[]{1, 2});
-        ASSERT_THROW(Arrays.compare(solution, new int[]{1, 2}) == 0);
+        ASSERT_TRUE(Arrays.compare(solution, new int[]{1, 2}) == 0);
     }
 
     private Solution_1_Two_Sum(int solutionID, String solutionName, ProblemDifficulty problemDifficulty) {
@@ -50,7 +53,7 @@ public class Solution_1_Two_Sum extends LeetcodeSolution {
 
     public static synchronized LeetcodeSolution instance() {
         if (_INSTANCE == null) {
-            _INSTANCE = new Solution_1_Two_Sum(1, "Solution Name", EASY);
+            _INSTANCE = new Solution_1_Two_Sum(1, "Two Sum", EASY);
         }
         return _INSTANCE;
     }
