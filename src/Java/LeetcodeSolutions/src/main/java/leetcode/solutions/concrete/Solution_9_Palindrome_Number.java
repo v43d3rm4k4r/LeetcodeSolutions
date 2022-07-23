@@ -8,6 +8,10 @@ import static leetcode.solutions.Complexity.*;
 /**
  * @Problem: Given an integer x, return true if x is palindrome integer.
  * An integer is a palindrome when it reads the same backward as forward.
+ * @Constraints:
+ * <ul>
+ *     <li>-2^31 <= x <= 2^31 - 1
+ * </ul>
  * @Solution1:
  * <ul>
  * <li>Convert a number to a string for iteration.

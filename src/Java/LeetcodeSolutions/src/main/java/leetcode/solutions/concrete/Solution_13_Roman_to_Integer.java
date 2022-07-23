@@ -9,6 +9,10 @@ import static leetcode.solutions.Complexity.*;
 
 /**
  * @Problem: Given a roman numeral, convert it to an integer.
+ * @Constraints:
+ * <ul>
+ *     <li>1 <= num <= 3999
+ * </ul>
  * @Solution:
  * <ul>
  * <li>Iterate over the provided string, checking each character.
