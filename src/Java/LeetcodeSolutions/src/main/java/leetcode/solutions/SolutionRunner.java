@@ -82,6 +82,7 @@ public class SolutionRunner {
         _solutionsFactories = new HashMap<>();
         _solutionsFactories.put(1, Solution_1_Two_Sum::new);
         _solutionsFactories.put(9, Solution_9_Palindrome_Number::new);
+        _solutionsFactories.put(13, Solution_13_Roman_to_Integer::new);
     }
 }
 
