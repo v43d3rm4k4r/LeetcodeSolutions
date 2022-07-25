@@ -50,7 +50,6 @@ public class Solution_1_Two_Sum extends LeetcodeSolution {
     public void run() {
         var nums = new int[] {3,2,4};
         var solution = twoSum(nums, 6);
-        var test = Arrays.compare(solution, new int[]{1, 2});
         ASSERT_EQ(Arrays.compare(solution,  new int[]{1, 2}), 0);
     }
 }
