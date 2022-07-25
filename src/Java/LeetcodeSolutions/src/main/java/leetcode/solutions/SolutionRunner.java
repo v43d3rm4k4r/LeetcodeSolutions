@@ -35,17 +35,13 @@ public class SolutionRunner {
         boolean solutionFound = false;
         for (String arg : args) {
             if (arg.contains("--runAll")) {
-                if (!_solutionsFactories.isEmpty()) {
-                    try {
-                        runAll();
-                    } catch (SolutionValidationException exception) {
-                        _LOGGER.log(Level.SEVERE, "{0}: solutionID: {1} solutionName: {2}",
-                                new Object[] {exception.getMessage(), exception.getSolutionID(), exception.getSolutionName()});
-                    }
-                    solutionFound = true;
-                    break;
+                try {
+                    runAll();
+                } catch (SolutionValidationException exception) {
+                    _LOGGER.log(Level.SEVERE, "{0}: solutionID: {1} solutionName: {2}",
+                            new Object[] {exception.getMessage(), exception.getSolutionID(), exception.getSolutionName()});
                 }
-                _LOGGER.log(Level.FINE, "There is no solutions"); // never should be here
+                solutionFound = true;
                 break;
             } else if (arg.contains("--run=")) {
                 var solutionToRun = Integer.parseInt(arg.substring(6));
@@ -69,9 +65,6 @@ public class SolutionRunner {
     }
 
     private static void runAll() {
-        if (_solutionsFactories.isEmpty()) {
-            return;
-        }
         for (var solution : _solutionsFactories.entrySet()) {
             _LOGGER.log(Level.FINE, "Running {0}", solution.toString());
             solution.getValue().create().run();

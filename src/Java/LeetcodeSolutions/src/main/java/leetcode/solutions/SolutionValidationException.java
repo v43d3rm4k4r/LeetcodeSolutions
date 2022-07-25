@@ -2,6 +2,8 @@ package leetcode.solutions;
 
 /**
  * {@code SolutionValidationException} is the exception class that additionally contains the solution information.
+ * In the "right" way, need to inherit from {@code Exception}, but in this case there will be a problem with changing the {@code Runnable}
+ * contract in {@code LeetcodeSolution} children.
  * @Author: Daniil Kuprianov
  */
 
