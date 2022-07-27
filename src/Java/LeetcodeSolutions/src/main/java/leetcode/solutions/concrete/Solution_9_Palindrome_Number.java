@@ -29,7 +29,7 @@ import static leetcode.solutions.Complexity.*;
  * @Author: Daniil Kuprianov
  */
 
-public class Solution_9_Palindrome_Number extends LeetcodeSolution {
+public final class Solution_9_Palindrome_Number extends LeetcodeSolution {
 
     public Solution_9_Palindrome_Number() { super(9, "Palindrome Number", EASY); }
 

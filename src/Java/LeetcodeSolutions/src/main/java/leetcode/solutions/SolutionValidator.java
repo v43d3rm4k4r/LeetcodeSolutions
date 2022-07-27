@@ -19,31 +19,31 @@ public final class SolutionValidator {
         _currentSolution = solution;
     }
 
-    public static void ASSERT_TRUE(boolean statement) {
+    public static void ASSERT_TRUE(boolean statement) throws SolutionValidationException {
         if (!statement) {
             throwException("ASSERT_TRUE fails");
         }
     };
 
-    public static void ASSERT_FALSE(boolean statement) {
+    public static void ASSERT_FALSE(boolean statement) throws SolutionValidationException {
         if (statement) {
             throwException("ASSERT_FALSE fails");
         }
     };
 
-    public static void ASSERT_EQ(boolean expected, boolean actual) {
+    public static void ASSERT_EQ(boolean expected, boolean actual) throws SolutionValidationException {
         if (expected != actual) {
             throwException("ASSERT_EQ fails");
         }
     }
 
-    public static void ASSERT_EQ(Integer expected, Integer actual) {
+    public static void ASSERT_EQ(Integer expected, Integer actual) throws SolutionValidationException {
         if (expected.compareTo(actual) != 0) {
             throwException("ASSERT_EQ fails");
         }
     }
 
-    public static void ASSERT_STREQ(String expected, String actual) {
+    public static void ASSERT_STREQ(String expected, String actual) throws SolutionValidationException {
         if (expected.compareTo(actual) != 0) {
             throwException("ASSERT_STREQ fails (expected: " + expected + ", actual: " + actual + ")");
         }

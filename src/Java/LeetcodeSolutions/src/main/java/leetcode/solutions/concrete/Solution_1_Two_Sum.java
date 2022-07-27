@@ -28,7 +28,7 @@ import java.util.HashMap;
  * @Author: Daniil Kuprianov
  */
 
-public class Solution_1_Two_Sum extends LeetcodeSolution {
+public final class Solution_1_Two_Sum extends LeetcodeSolution {
 
     public Solution_1_Two_Sum() { super(1, "Two Sum", EASY); }
 

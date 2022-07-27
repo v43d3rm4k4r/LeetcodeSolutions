@@ -27,7 +27,7 @@ import static leetcode.solutions.Complexity.*;
  * @Author: Daniil Kuprianov
  */
 
-public class Solution_13_Roman_to_Integer extends LeetcodeSolution {
+public final class Solution_13_Roman_to_Integer extends LeetcodeSolution {
 
     public Solution_13_Roman_to_Integer() { super(13, "Roman to Integer", EASY); }
 

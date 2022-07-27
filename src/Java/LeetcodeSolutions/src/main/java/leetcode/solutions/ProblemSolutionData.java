@@ -5,10 +5,6 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target(ElementType.METHOD)
+@Target({ElementType.TYPE, ElementType.FIELD})
 @Retention(RetentionPolicy.SOURCE)
-public @interface ProblemSolution {
-    int maxArgs() default 1;
-    int minArgs() default 1;
-    Complexity complexity() default Complexity.DEFAULT;
-}
+public @interface ProblemSolutionData {}
