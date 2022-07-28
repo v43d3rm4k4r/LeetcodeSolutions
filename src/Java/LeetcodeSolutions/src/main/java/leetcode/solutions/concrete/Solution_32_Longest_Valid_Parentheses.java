@@ -18,6 +18,7 @@ import static leetcode.solutions.Complexity.*;
  * Iterating the array, counting the number of parentheses. If number of left and right ones matches, then we select the maximum value
  * from the current sum of the passed parentheses and the currently maximum long valid part. If there are more right parentheses,
  * then we reset the counters. This algorithm is valid only if it used on both sides, so we repeat the same from the other end of the string.
+ * The solution has O(1) space complexity.
  * @Complexity: O(N)
  * @Author: Daniil Kuprianov
  */
