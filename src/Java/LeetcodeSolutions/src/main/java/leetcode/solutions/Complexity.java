@@ -12,6 +12,7 @@ public enum Complexity {
     O_NlogN,
     O_N2,
     O_NlogN2,
+    O_N3,
     O_NFactorial,
-    DEFAULT
+    DEFAULT        // for higher-order methods (not implementations)
 }
