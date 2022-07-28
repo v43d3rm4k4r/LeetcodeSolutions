@@ -73,12 +73,13 @@ public class SolutionRunner {
 
     private static void initSolutions() {
         _solutionsFactories = new HashMap<>();
-        _solutionsFactories.put(1,  Solution_1_Two_Sum::new);
-        _solutionsFactories.put(9,  Solution_9_Palindrome_Number::new);
-        _solutionsFactories.put(13, Solution_13_Roman_to_Integer::new);
-        _solutionsFactories.put(20, Solution_20_Valid_Parentheses::new);
-        _solutionsFactories.put(32, Solution_32_Longest_Valid_Parentheses::new);
-        // TODO: _solutionsFactories.put(46, Solution_46_Permutations::new);
+        _solutionsFactories.put(1,   Solution_1_Two_Sum::new);
+        _solutionsFactories.put(9,   Solution_9_Palindrome_Number::new);
+        _solutionsFactories.put(13,  Solution_13_Roman_to_Integer::new);
+        _solutionsFactories.put(20,  Solution_20_Valid_Parentheses::new);
+        _solutionsFactories.put(32,  Solution_32_Longest_Valid_Parentheses::new);
+        // TODO: _solutionsFactories.put(46,  Solution_46_Permutations::new);
+        _solutionsFactories.put(136, Solution_136_Single_Number::new);
     }
 }
 

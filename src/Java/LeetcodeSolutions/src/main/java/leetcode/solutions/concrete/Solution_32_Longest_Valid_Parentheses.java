@@ -28,7 +28,7 @@ public final class Solution_32_Longest_Valid_Parentheses extends LeetcodeSolutio
     public Solution_32_Longest_Valid_Parentheses() { super(32, "Longest Valid Parentheses", HARD); }
 
     @ProblemSolution(complexity = O_N)
-    public int longestValidParentheses2(String s) {
+    public int longestValidParentheses(String s) {
         if (s.length() < 2) return 0;
         int leftsCounter = 0, rightsCounter = 0, result = 0;
         for (var i = 0; i < s.length(); ++i) {
@@ -62,10 +62,10 @@ public final class Solution_32_Longest_Valid_Parentheses extends LeetcodeSolutio
     @Override
     @ProblemInputData
     public void run() {
-        ASSERT_EQ(2, longestValidParentheses2("(()"));
-        ASSERT_EQ(4, longestValidParentheses2(")()())"));
-        ASSERT_EQ(6, longestValidParentheses2("()(())"));
-        ASSERT_EQ(6, longestValidParentheses2(")((()))))"));
-        ASSERT_EQ(0, longestValidParentheses2(""));
+        ASSERT_EQ(2, longestValidParentheses("(()"));
+        ASSERT_EQ(4, longestValidParentheses(")()())"));
+        ASSERT_EQ(6, longestValidParentheses("()(())"));
+        ASSERT_EQ(6, longestValidParentheses(")((()))))"));
+        ASSERT_EQ(0, longestValidParentheses(""));
     }
 }
