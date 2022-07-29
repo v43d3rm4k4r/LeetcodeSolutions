@@ -31,7 +31,7 @@ import static leetcode.solutions.Complexity.*;
 
 public final class Solution_9_Palindrome_Number extends LeetcodeSolution {
 
-    public Solution_9_Palindrome_Number() { super(9, "Palindrome Number", EASY); }
+    public Solution_9_Palindrome_Number() { super(EASY); resolveConcreteSolutionInfo(this); }
 
     @ProblemSolution(complexity = O_N)
     private boolean isPalindrome1(int x) {

@@ -30,7 +30,7 @@ import java.util.HashMap;
 
 public final class Solution_1_Two_Sum extends LeetcodeSolution {
 
-    public Solution_1_Two_Sum() { super(1, "Two Sum", EASY); }
+    public Solution_1_Two_Sum() { super(EASY); resolveConcreteSolutionInfo(this); }
 
     @ProblemSolution(complexity = O_N)
     private int[] twoSum(int[] nums, int target) {

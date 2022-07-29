@@ -31,7 +31,7 @@ An input string is valid if:
 
 public final class Solution_20_Valid_Parentheses extends LeetcodeSolution {
 
-    public Solution_20_Valid_Parentheses() { super(20, "Valid Parentheses", EASY); }
+    public Solution_20_Valid_Parentheses() { super(EASY); resolveConcreteSolutionInfo(this); }
 
     @ProblemSolutionData
     private enum BracketType {

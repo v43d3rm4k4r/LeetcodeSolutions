@@ -26,7 +26,7 @@ import static leetcode.solutions.Complexity.*;
 
 public final class Solution_32_Longest_Valid_Parentheses extends LeetcodeSolution {
 
-    public Solution_32_Longest_Valid_Parentheses() { super(32, "Longest Valid Parentheses", HARD); }
+    public Solution_32_Longest_Valid_Parentheses() { super(HARD); resolveConcreteSolutionInfo(this); }
 
     @ProblemSolution(complexity = O_N)
     public int longestValidParentheses(String s) {

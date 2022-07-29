@@ -29,7 +29,7 @@ import static leetcode.solutions.Complexity.*;
 
 public final class Solution_13_Roman_to_Integer extends LeetcodeSolution {
 
-    public Solution_13_Roman_to_Integer() { super(13, "Roman to Integer", EASY); }
+    public Solution_13_Roman_to_Integer() { super(EASY); resolveConcreteSolutionInfo(this); }
 
     @ProblemSolution(complexity = O_N)
     private int romanToInt(@NotNull String s) {

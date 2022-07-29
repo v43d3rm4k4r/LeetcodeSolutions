@@ -26,7 +26,7 @@ import static leetcode.solutions.Complexity.*;
 
 public final class Solution_136_Single_Number extends LeetcodeSolution {
 
-    public Solution_136_Single_Number() { super(136, "Single Number", EASY); }
+    public Solution_136_Single_Number() { super(EASY); resolveConcreteSolutionInfo(this); }
 
     @ProblemSolution(complexity = O_N)
     private int singleNumber(int @NotNull [] nums) {

@@ -27,7 +27,7 @@ You must implement a solution with a linear runtime complexity and use only cons
 
 public final class Solution_137_Single_Number_II extends LeetcodeSolution {
 
-    public Solution_137_Single_Number_II() { super(137, "Single Number II", MEDIUM); }
+    public Solution_137_Single_Number_II() { super(MEDIUM); resolveConcreteSolutionInfo(this);  }
 
     @ProblemSolution(complexity = O_N)
     private int singleNumber(int @NotNull [] nums) {

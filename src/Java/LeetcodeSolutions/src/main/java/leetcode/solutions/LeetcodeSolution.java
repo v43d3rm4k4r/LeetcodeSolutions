@@ -1,5 +1,7 @@
 package leetcode.solutions;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * {@code LeetcodeSolution} is the superclass of all solutions and includes common info about each solution.
  *  Every solution registered self with the {@code SolutionValidator} to get access to assertion methods.
@@ -7,13 +9,11 @@ package leetcode.solutions;
  */
 
 public abstract class LeetcodeSolution implements Runnable {
-    protected final int               _solutionID;
-    protected final String            _solutionName;
-    protected final ProblemDifficulty _problemDifficulty;
+    protected int               _solutionID;
+    protected String            _solutionName;
+    protected ProblemDifficulty _problemDifficulty;
 
-    protected LeetcodeSolution(int solutionID, String solutionName, ProblemDifficulty problemDifficulty) {
-        _solutionID        = solutionID;
-        _solutionName      = solutionName;
+    protected LeetcodeSolution(ProblemDifficulty problemDifficulty) {
         _problemDifficulty = problemDifficulty;
         SolutionValidator.registerSolution(this);
     }
@@ -25,6 +25,12 @@ public abstract class LeetcodeSolution implements Runnable {
     public String toString() {
         return "problem \"" + _solutionName + "\" (" + _solutionID + "), " + _problemDifficulty.toString().toLowerCase() +
                 " difficulty\n";
+    }
+
+    protected void resolveConcreteSolutionInfo(@NotNull LeetcodeSolution concrete) {
+        var className = concrete.getClass().getSimpleName();
+        _solutionID   = Integer.parseInt(className.split("_")[1]);
+        _solutionName = className.replace("_", " ");
     }
 }
 
