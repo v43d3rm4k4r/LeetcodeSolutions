@@ -20,6 +20,7 @@ import static leetcode.solutions.Complexity.*;
  * then we reset the counters. This algorithm is valid only if it used on both sides, so we repeat the same from the other end of the string.
  * The solution has O(1) space complexity.
  * @Complexity: O(N)
+ * @See:     {@link Solution_20_Valid_Parentheses}
  * @Author: Daniil Kuprianov
  */
 
