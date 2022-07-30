@@ -33,10 +33,10 @@ public final class Solution_125_Valid_Palindrome extends LeetcodeSolution {
 
     @ProblemSolution(complexity = O_N)
     private boolean isPalindrome1(@NotNull String s) {
-        var filteredStr = new StringBuilder(s.toLowerCase());
-        for (var ch = 0; ch < filteredStr.length(); ++ch) {
-            if (!Character.isLetterOrDigit(filteredStr.charAt(ch))) {
-                filteredStr.deleteCharAt(ch--);
+        var filteredStr = new StringBuilder();
+        for (var ch = 0; ch < s.length(); ++ch) {
+            if (Character.isLetterOrDigit(s.charAt(ch))) {
+                filteredStr.append(Character.toLowerCase(s.charAt(ch)));
             }
         }
         for (int i = 0, j = filteredStr.length() - 1; i < filteredStr.length() / 2; ++i, --j) {
