@@ -31,6 +31,7 @@ public abstract class LeetcodeSolution implements Runnable {
         var className = concrete.getClass().getSimpleName();
         _solutionID   = Integer.parseInt(className.split("_")[1]);
         _solutionName = className.replace("_", " ");
+        _solutionName =  _solutionName.substring(_solutionName.indexOf(" ", _solutionName.indexOf(" ") + 1) + 1);
     }
 }
 
