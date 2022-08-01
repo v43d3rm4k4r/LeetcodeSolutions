@@ -17,9 +17,9 @@ import leetcode.solutions.concrete.kotlin.*;
  * @Author: Daniil Kuprianov
  */
 
-public class SolutionRunner {
+public final class SolutionRunner {
 
-    private static HashMap<Integer, SolutionsFactory<LeetcodeSolution>> _solutionsFactories;
+    private static HashMap<Integer, SolutionsFactory<LeetcodeSolution>> _solutionsFactories = new HashMap<>();
     private static final Logger _LOGGER = Logger.getLogger(SolutionRunner.class.getName());
 
     static {
@@ -73,7 +73,6 @@ public class SolutionRunner {
     }
 
     private static void initSolutions() {
-        _solutionsFactories = new HashMap<>();
         _solutionsFactories.put(1,   Solution_1_Two_Sum::new);
         _solutionsFactories.put(9,   Solution_9_Palindrome_Number::new);
         _solutionsFactories.put(13,  Solution_13_Roman_to_Integer::new);
