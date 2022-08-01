@@ -5,7 +5,8 @@ import java.util.logging.ConsoleHandler;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 import java.util.logging.SimpleFormatter;
-import leetcode.solutions.concrete.*;
+import leetcode.solutions.concrete.java.*;
+import leetcode.solutions.concrete.kotlin.*;
 
 // TODO: measure solutions time
 // TODO: fix logger or use System.out

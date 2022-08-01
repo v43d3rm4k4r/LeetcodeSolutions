@@ -1,4 +1,4 @@
-package leetcode.solutions.concrete;
+package leetcode.solutions.concrete.java;
 
 import leetcode.solutions.*;
 

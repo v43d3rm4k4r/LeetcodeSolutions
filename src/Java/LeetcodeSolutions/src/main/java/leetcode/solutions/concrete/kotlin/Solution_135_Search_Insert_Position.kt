@@ -1,7 +1,6 @@
-package leetcode.solutions.concrete
+package leetcode.solutions.concrete.kotlin
 
 import leetcode.solutions.*;
-
 import leetcode.solutions.ProblemDifficulty.*
 import leetcode.solutions.SolutionValidator.*
 import leetcode.solutions.Complexity.*
@@ -11,8 +10,8 @@ class Solution_135_Search_Insert_Position : LeetcodeSolution(EASY) {
 
     @ProblemSolution(complexity = O_logN)
     private fun searchInsert(nums: IntArray, target: Int): Int {
-        var left = 0; var mid = 0; var right = nums.size
-        while (left <= right) {
+        var left = 0; var mid = -1; var right = nums.size
+        while (left < right) {
             mid = (right + left) / 2
             if (nums[mid] == target) {
                 return mid
@@ -23,13 +22,13 @@ class Solution_135_Search_Insert_Position : LeetcodeSolution(EASY) {
                 right = mid - 1
             }
         }
-        return -1
+        return mid
     }
 
     @ProblemInputData
     override fun run() {
         ASSERT_EQ(2, searchInsert(nums = intArrayOf(1,3,5,6), target = 5))
-        //ASSERT_EQ(1, searchInsert(nums = intArrayOf(1,3,5,6), target = 2))
-        //ASSERT_EQ(4, searchInsert(nums = intArrayOf(1,3,5,6), target = 7))
+        ASSERT_EQ(1, searchInsert(nums = intArrayOf(1,3,5,6), target = 2))
+        ASSERT_EQ(4, searchInsert(nums = intArrayOf(1,3,5,6), target = 7))
     }
 }
