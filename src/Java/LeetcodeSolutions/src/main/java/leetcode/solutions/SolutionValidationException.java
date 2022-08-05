@@ -7,7 +7,7 @@ package leetcode.solutions;
  * @Author: Daniil Kuprianov
  */
 
-public class SolutionValidationException extends RuntimeException {
+public final class SolutionValidationException extends RuntimeException {
     private final int    _solutionID;
     private final String _solutionName;
 
