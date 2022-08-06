@@ -1,5 +1,7 @@
 package leetcode.solutions;
 
+import java.util.Arrays;
+
 /**
  * {@code SolutionValidator} used to validate solutions using static assertion methods. It is obtains the solution info
  * by having the {@code LeetcodeSolution} reference that gets by the {@link #registerSolution}() method.
@@ -39,6 +41,12 @@ public final class SolutionValidator {
 
     public static void ASSERT_EQ(Integer expected, Integer actual) throws SolutionValidationException {
         if (expected.compareTo(actual) != 0) {
+            throwException("ASSERT_EQ fails");
+        }
+    }
+
+    public static void ASSERT_EQ(int[] expected, int[] actual) throws SolutionValidationException { // TODO: use generics ?
+        if (!Arrays.equals(expected, actual)) {
             throwException("ASSERT_EQ fails");
         }
     }
