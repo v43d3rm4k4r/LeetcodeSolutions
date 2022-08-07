@@ -59,7 +59,6 @@ class Solution_13_Roman_to_Integer : LeetcodeSolution(EASY) {
         return result
     }
 
-    @Override
     @ProblemInputData
     override fun run() {
         ASSERT_EQ(3,    romanToInt("III"));

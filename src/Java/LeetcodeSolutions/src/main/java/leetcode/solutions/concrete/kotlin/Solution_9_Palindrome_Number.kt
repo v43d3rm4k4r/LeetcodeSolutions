@@ -57,7 +57,6 @@ class Solution_9_Palindrome_Number : LeetcodeSolution(EASY) {
         return rhs == xCpy || rhs / 10 == xCpy
     }
 
-    @Override
     @ProblemInputData
     override fun run() {
         ASSERT_TRUE(isPalindrome1(321123));
