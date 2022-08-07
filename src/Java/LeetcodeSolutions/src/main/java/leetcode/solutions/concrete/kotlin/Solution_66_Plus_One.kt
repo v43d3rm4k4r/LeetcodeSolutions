@@ -7,25 +7,28 @@ import leetcode.solutions.Complexity.*
 import kotlin.math.log10
 
 /**
- * @Problem: You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit
+ * __Problem:__ You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit
  * of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large
  * integer does not contain any leading 0's. Increment the large integer by one and return the resulting array of
  * digits.
- * @Constraints:
- * <ul>
- *     <li>1 <= digits.length <= 100
-       <li>0 <= digits[i] <= 9
-       <li>digits does not contain any leading 0's.
- * </ul>
- * @Solution1: This solution is based on converting an array to a number and vice versa. It does not look too elegant
+ *
+ * __Constraints:__
+ * - 1 <= digits.length <= 100
+   - 0 <= digits at _i_ <= 9
+   - digits does not contain any leading 0's.
+
+ * __Solution 1:__ This solution is based on converting an array to a number and vice versa. It does not look too elegant
  * and is not the most effective.
- * @Complexity: O(N)
- * @Solution2: Iteratively go through the array from lower to higher digits. If the current number is less than 9,
+ *
+ * __Complexity:__ O(N)
+ *
+ * __Solution 2:__ Iteratively go through the array from lower to higher digits. If the current number is less than 9,
  * just increment it and return an array. If the number is 9, then we reset the current digit and move on to the next
  * iteration. If the array was not returned when exiting the loop, this means that all values are zeros, and you will
  * have to add one to the beginning.
- * @Complexity: O(N)
- * @Author: Daniil Kuprianov
+ *
+ * __Complexity:__ O(N)
+ * @author Daniil Kuprianov
  */
 
 class Solution_66_Plus_One : LeetcodeSolution(EASY) {

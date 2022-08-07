@@ -5,22 +5,22 @@ import leetcode.solutions.ProblemDifficulty.*
 import leetcode.solutions.SolutionValidator.*
 import leetcode.solutions.Complexity.*
 
-// TODO: fix comments
 /**
- * @Problem: Given a sorted array of distinct integers and a target value, return the index if the target is found. If
+ * __Problem:__ Given a sorted array of distinct integers and a target value, return the index if the target is found. If
  * not, return the index where it would be if it were inserted in order. You must write an algorithm with O(log n)
  * runtime complexity.
- * @Constraints:
- * <ul>
- *     <li>1 <= nums.length <= 10^4
-       <li>-10^4 <= nums[i] <= 10^4
-       <li>nums contains distinct values sorted in ascending order.
-       <li>-10^4 <= target <= 10^4
- * </ul>
- * @Solution: Need to user classic binary search. In the absence of the desired value, we return left, which corresponds
+ *
+ * __Constraints:__
+ * - 1 <= nums.length <= 10^4
+ * - -10^4 <= nums at _i_ <= 10^4
+ * - nums contains distinct values sorted in ascending order.
+ * - -10^4 <= target <= 10^4
+
+ * __Solution:__ Need to user classic binary search. In the absence of the desired value, we return left, which corresponds
  * to the index for inserting the desired value.
- * @Complexity: O(log(N))
- * @Author: Daniil Kuprianov
+ *
+ * __Complexity:__ O(log(N))
+ * @author Daniil Kuprianov
  */
 
 class Solution_135_Search_Insert_Position : LeetcodeSolution(EASY) {
