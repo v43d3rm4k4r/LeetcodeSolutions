@@ -1,6 +1,6 @@
 package leetcode.solutions.concrete.kotlin
 
-import leetcode.solutions.*;
+import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
 import leetcode.solutions.SolutionValidator.*
 import leetcode.solutions.Complexity.*

@@ -31,40 +31,40 @@ class Solution_20_Valid_Parentheses : LeetcodeSolution(EASY) {
     private enum class BracketType {
         PARENTHESES,
         SQUARE_BRACKETS,
-        CURLY_BRACKETS
+        CURLY_BRACKETS,
     }
 
     @ProblemSolution(complexity = O_N)
     private fun isValid(s: String): Boolean {
-        if (s.length < 2) return false;
-        val bracketsStack = LinkedList<BracketType>(); // no need in slow java.util.Stack
+        if (s.length < 2) return false
+        val bracketsStack = LinkedList<BracketType>() // no need in slow java.util.Stack
         for (i in s.indices) {
             when (s[i]) {
-                '(' -> bracketsStack.add(BracketType.PARENTHESES);
+                '(' -> bracketsStack.add(BracketType.PARENTHESES)
                 ')' -> {
-                    if (bracketsStack.isEmpty() || bracketsStack.last != BracketType.PARENTHESES) return false;
-                    bracketsStack.removeLast();
+                    if (bracketsStack.isEmpty() || bracketsStack.last != BracketType.PARENTHESES) return false
+                    bracketsStack.removeLast()
                 }
-                '[' -> bracketsStack.add(BracketType.SQUARE_BRACKETS);
+                '[' -> bracketsStack.add(BracketType.SQUARE_BRACKETS)
                 ']' -> {
-                    if (bracketsStack.isEmpty() || bracketsStack.last != BracketType.SQUARE_BRACKETS) return false;
-                    bracketsStack.removeLast();
+                    if (bracketsStack.isEmpty() || bracketsStack.last != BracketType.SQUARE_BRACKETS) return false
+                    bracketsStack.removeLast()
                 }
-                '{' -> bracketsStack.add(BracketType.CURLY_BRACKETS);
+                '{' -> bracketsStack.add(BracketType.CURLY_BRACKETS)
                 '}' -> {
-                    if (bracketsStack.isEmpty() || bracketsStack.last != BracketType.CURLY_BRACKETS) return false;
-                    bracketsStack.removeLast();
+                    if (bracketsStack.isEmpty() || bracketsStack.last != BracketType.CURLY_BRACKETS) return false
+                    bracketsStack.removeLast()
                 }
             }
         }
-        return bracketsStack.size == 0;
+        return bracketsStack.size == 0
     }
 
     @ProblemInputData
     override fun run() {
-        ASSERT_TRUE(isValid( "()"));
-        ASSERT_TRUE(isValid( "()[]{}"));
-        ASSERT_FALSE(isValid("(]"));
-        ASSERT_FALSE(isValid("}("));
+        ASSERT_TRUE(isValid( "()"))
+        ASSERT_TRUE(isValid( "()[]{}"))
+        ASSERT_FALSE(isValid("(]"))
+        ASSERT_FALSE(isValid("}("))
     }
 }

@@ -1,4 +1,4 @@
-package leetcode.solutions.concrete.kotlin;
+package leetcode.solutions.concrete.kotlin
 
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
@@ -59,12 +59,12 @@ class Solution_9_Palindrome_Number : LeetcodeSolution(EASY) {
 
     @ProblemInputData
     override fun run() {
-        ASSERT_TRUE(isPalindrome1(321123));
-        ASSERT_TRUE(isPalindrome1(543212345));
-        ASSERT_FALSE(isPalindrome1(12345));
+        ASSERT_TRUE(isPalindrome1(321123))
+        ASSERT_TRUE(isPalindrome1(543212345))
+        ASSERT_FALSE(isPalindrome1(12345))
 
-        ASSERT_TRUE(isPalindrome2(12533521));
-        ASSERT_FALSE(isPalindrome2(543211234));
-        ASSERT_FALSE(isPalindrome2(12345));
+        ASSERT_TRUE(isPalindrome2(12533521))
+        ASSERT_FALSE(isPalindrome2(543211234))
+        ASSERT_FALSE(isPalindrome2(12345))
     }
 }

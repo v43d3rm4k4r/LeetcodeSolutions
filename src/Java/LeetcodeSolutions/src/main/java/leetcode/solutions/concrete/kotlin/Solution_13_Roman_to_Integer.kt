@@ -61,8 +61,8 @@ class Solution_13_Roman_to_Integer : LeetcodeSolution(EASY) {
 
     @ProblemInputData
     override fun run() {
-        ASSERT_EQ(3,    romanToInt("III"));
-        ASSERT_EQ(58,   romanToInt("LVIII"));
-        ASSERT_EQ(1994, romanToInt("MCMXCIV"));
+        ASSERT_EQ(3,    romanToInt("III"))
+        ASSERT_EQ(58,   romanToInt("LVIII"))
+        ASSERT_EQ(1994, romanToInt("MCMXCIV"))
     }
 }

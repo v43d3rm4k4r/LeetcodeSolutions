@@ -60,10 +60,10 @@ class Solution_32_Longest_Valid_Parentheses : LeetcodeSolution(HARD) {
 
     @ProblemInputData
     override fun run() {
-        ASSERT_EQ(2, longestValidParentheses("(()"));
-        ASSERT_EQ(4, longestValidParentheses(")()())"));
-        ASSERT_EQ(6, longestValidParentheses("()(())"));
-        ASSERT_EQ(6, longestValidParentheses(")((()))))"));
-        ASSERT_EQ(0, longestValidParentheses(""));
+        ASSERT_EQ(2, longestValidParentheses("(()"))
+        ASSERT_EQ(4, longestValidParentheses(")()())"))
+        ASSERT_EQ(6, longestValidParentheses("()(())"))
+        ASSERT_EQ(6, longestValidParentheses(")((()))))"))
+        ASSERT_EQ(0, longestValidParentheses(""))
     }
 }
