@@ -79,10 +79,10 @@ public final class SolutionRunner {
         _solutionsFactories.put(13,  Solution_13_Roman_to_Integer::new);
         _solutionsFactories.put(20,  Solution_20_Valid_Parentheses::new);
         _solutionsFactories.put(32,  Solution_32_Longest_Valid_Parentheses::new);
+        _solutionsFactories.put(35,  Solution_35_Search_Insert_Position::new);
         // TODO: _solutionsFactories.put(46,  Solution_46_Permutations::new);
         _solutionsFactories.put(66,  Solution_66_Plus_One::new);
         _solutionsFactories.put(125, Solution_125_Valid_Palindrome::new);
-        _solutionsFactories.put(135, Solution_135_Search_Insert_Position::new);
         _solutionsFactories.put(136, Solution_136_Single_Number::new);
         _solutionsFactories.put(137, Solution_137_Single_Number_II::new);
     }

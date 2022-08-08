@@ -23,7 +23,7 @@ import leetcode.solutions.Complexity.*
  * @author Daniil Kuprianov
  */
 
-class Solution_135_Search_Insert_Position : LeetcodeSolution(EASY) {
+class Solution_35_Search_Insert_Position : LeetcodeSolution(EASY) {
     init { resolveConcreteSolutionInfo(this) }
 
     @ProblemSolution(complexity = O_logN)

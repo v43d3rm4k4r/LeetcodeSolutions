@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     id("java")
+    id("com.github.johnrengelman.shadow") version "7.0.0"
     kotlin("jvm") version "1.7.20-Beta"
 }
 
@@ -9,6 +10,7 @@ group = "leetcode.solutions"
 version = "1.0-SNAPSHOT"
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 

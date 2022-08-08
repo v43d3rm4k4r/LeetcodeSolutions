@@ -1,4 +1,4 @@
-package leetcode.solutions.concrete.kotlin;
+package leetcode.solutions.concrete.kotlin
 
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
