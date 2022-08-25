@@ -30,7 +30,7 @@ class Solution_12_Integer_to_Roman : LeetcodeSolution(MEDIUM) {
     init { resolveConcreteSolutionInfo(this) }
 
     @ProblemSolution(complexity = O_N)
-    private fun intToRoman(num: Int): String {
+    private fun intToRoman1(num: Int): String {
         var numCopy = num
         var digit = 0
         var result = ""
@@ -84,10 +84,37 @@ class Solution_12_Integer_to_Roman : LeetcodeSolution(MEDIUM) {
         return result
     }
 
+    fun intToRoman2(num: Int): String {
+        var number = num
+        var position = 0
+        var result = ""
+        while (number > 0) {
+            val digit = number % 10
+            result = ROMANS[position][digit] + result
+            number /= 10
+            ++position
+        }
+        return result
+    }
+
+    @ProblemSolutionData
+    companion object {
+        val ROMANS = arrayOf(
+            arrayOf("", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"),
+            arrayOf("", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"),
+            arrayOf("", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"),
+            arrayOf("", "M", "MM", "MMM")
+        )
+    }
+
     @ProblemInputData
     override fun run() {
-        ASSERT_STREQ("III",     intToRoman(3))
-        ASSERT_STREQ("LVIII",   intToRoman(58))
-        ASSERT_STREQ("MCMXCIV", intToRoman(1994))
+        ASSERT_STREQ("III",     intToRoman1(3))
+        ASSERT_STREQ("LVIII",   intToRoman1(58))
+        ASSERT_STREQ("MCMXCIV", intToRoman1(1994))
+
+        ASSERT_STREQ("III",     intToRoman2(3))
+        ASSERT_STREQ("LVIII",   intToRoman2(58))
+        ASSERT_STREQ("MCMXCIV", intToRoman2(1994))
     }
 }
