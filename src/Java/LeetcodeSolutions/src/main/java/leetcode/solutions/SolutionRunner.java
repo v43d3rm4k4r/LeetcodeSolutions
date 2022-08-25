@@ -76,6 +76,7 @@ public final class SolutionRunner {
         _solutionsFactories.put(1,   Solution_1_Two_Sum::new);
         _solutionsFactories.put(9,   Solution_9_Palindrome_Number::new);
         //_solutionsFactories.put(11,  Solution_11_Container_With_Most_Water::new);
+        _solutionsFactories.put(12,  Solution_12_Integer_to_Roman::new);
         _solutionsFactories.put(13,  Solution_13_Roman_to_Integer::new);
         _solutionsFactories.put(20,  Solution_20_Valid_Parentheses::new);
         _solutionsFactories.put(32,  Solution_32_Longest_Valid_Parentheses::new);
