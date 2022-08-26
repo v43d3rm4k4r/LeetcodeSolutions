@@ -84,7 +84,7 @@ class Solution_12_Integer_to_Roman : LeetcodeSolution(MEDIUM) {
         return result
     }
 
-    fun intToRoman2(num: Int): String {
+    private fun intToRoman2(num: Int): String {
         var number = num
         var position = 0
         var result = ""
@@ -97,7 +97,7 @@ class Solution_12_Integer_to_Roman : LeetcodeSolution(MEDIUM) {
         return result
     }
 
-    @ProblemSolutionData
+    @ProblemSolutionData(solution = 2)
     companion object {
         val ROMANS = arrayOf(
             arrayOf("", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"),

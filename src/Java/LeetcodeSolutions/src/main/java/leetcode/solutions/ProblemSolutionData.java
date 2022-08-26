@@ -7,4 +7,8 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.TYPE, ElementType.FIELD})
 @Retention(RetentionPolicy.SOURCE)
-public @interface ProblemSolutionData {}
+public @interface ProblemSolutionData {
+    int maxArgs()  default 1;
+    int minArgs()  default 0;
+    int solution() default 1;
+}
