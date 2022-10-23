@@ -4,6 +4,8 @@ import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
 import leetcode.solutions.SolutionValidator.*
 import leetcode.solutions.Complexity.*
+import leetcode.solutions.annotations.ProblemInputData
+import leetcode.solutions.annotations.ProblemSolution
 import kotlin.math.log10
 
 /**

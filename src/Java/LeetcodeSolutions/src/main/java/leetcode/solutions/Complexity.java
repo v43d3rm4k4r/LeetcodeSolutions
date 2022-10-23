@@ -1,5 +1,7 @@
 package leetcode.solutions;
 
+import leetcode.solutions.annotations.ProblemSolution;
+
 /**
  * {@code Complexity} is the enum for {@link ProblemSolution} annotations.
  * @Author: Daniil Kuprianov

@@ -1,12 +1,13 @@
 package leetcode.solutions.concrete.java;
 
 import leetcode.solutions.*;
+import leetcode.solutions.annotations.ProblemInputData;
+import leetcode.solutions.annotations.ProblemSolution;
+import leetcode.solutions.annotations.ProblemSolutionData;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 import static leetcode.solutions.ProblemDifficulty.*;
 import static leetcode.solutions.SolutionValidator.*;

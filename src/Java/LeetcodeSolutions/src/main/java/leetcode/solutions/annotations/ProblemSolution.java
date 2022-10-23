@@ -1,4 +1,6 @@
-package leetcode.solutions;
+package leetcode.solutions.annotations;
+
+import leetcode.solutions.Complexity;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

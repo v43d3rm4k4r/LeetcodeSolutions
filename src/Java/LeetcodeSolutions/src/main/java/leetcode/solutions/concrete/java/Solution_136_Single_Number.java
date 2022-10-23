@@ -1,6 +1,8 @@
 package leetcode.solutions.concrete.java;
 
 import leetcode.solutions.*;
+import leetcode.solutions.annotations.ProblemInputData;
+import leetcode.solutions.annotations.ProblemSolution;
 import org.jetbrains.annotations.NotNull;
 
 import static leetcode.solutions.ProblemDifficulty.*;

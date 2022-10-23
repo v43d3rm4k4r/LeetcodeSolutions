@@ -4,6 +4,8 @@ import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
 import leetcode.solutions.SolutionValidator.*
 import leetcode.solutions.Complexity.*
+import leetcode.solutions.annotations.ProblemInputData
+import leetcode.solutions.annotations.ProblemSolution
 
 /**
  * __Problem:__ Given an integer x, return true if x is palindrome integer.

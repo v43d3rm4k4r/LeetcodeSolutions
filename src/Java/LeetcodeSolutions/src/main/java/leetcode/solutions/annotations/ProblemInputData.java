@@ -1,4 +1,4 @@
-package leetcode.solutions;
+package leetcode.solutions.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

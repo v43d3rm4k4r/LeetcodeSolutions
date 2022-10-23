@@ -4,6 +4,8 @@ import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
 import leetcode.solutions.SolutionValidator.*
 import leetcode.solutions.Complexity.*
+import leetcode.solutions.annotations.ProblemInputData
+import leetcode.solutions.annotations.ProblemSolution
 
 /**
  * __Problem:__ Given a sorted array of distinct integers and a target value, return the index if the target is found. If
