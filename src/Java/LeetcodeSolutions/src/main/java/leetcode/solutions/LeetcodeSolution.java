@@ -9,6 +9,7 @@ import org.jetbrains.annotations.NotNull;
  */
 
 public abstract class LeetcodeSolution implements Runnable {
+
     protected int               _solutionID;
     protected String            _solutionName;
     protected ProblemDifficulty _problemDifficulty;
@@ -34,4 +35,3 @@ public abstract class LeetcodeSolution implements Runnable {
         _solutionName =  _solutionName.substring(_solutionName.indexOf(" ", _solutionName.indexOf(" ") + 1) + 1);
     }
 }
-

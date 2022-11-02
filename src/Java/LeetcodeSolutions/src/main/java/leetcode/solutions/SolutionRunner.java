@@ -19,7 +19,7 @@ import leetcode.solutions.concrete.kotlin.*;
 
 public final class SolutionRunner {
 
-    private static HashMap<Integer, SolutionsFactory<LeetcodeSolution>> _solutionsFactories = new HashMap<>();
+    private static final HashMap<Integer, SolutionsFactory<LeetcodeSolution>> _solutionsFactories = new HashMap<>();
     private static final Logger _LOGGER = Logger.getLogger(SolutionRunner.class.getName());
 
     static {
@@ -88,4 +88,3 @@ public final class SolutionRunner {
         _solutionsFactories.put(137, Solution_137_Single_Number_II::new);
     }
 }
-
