@@ -19,7 +19,7 @@ import leetcode.solutions.concrete.kotlin.*;
 
 public final class SolutionRunner {
 
-    private static HashMap<Integer, SolutionsFactory<LeetcodeSolution>> _solutionsFactories = new HashMap<>();
+    private static final HashMap<Integer, SolutionsFactory<LeetcodeSolution>> _solutionsFactories = new HashMap<>();
     private static final Logger _LOGGER = Logger.getLogger(SolutionRunner.class.getName());
 
     static {
@@ -89,4 +89,3 @@ public final class SolutionRunner {
         _solutionsFactories.put(2125, Solution_2125_Number_of_Laser_Beams_in_a_Bank::new);
     }
 }
-
