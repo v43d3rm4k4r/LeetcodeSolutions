@@ -26,7 +26,7 @@ import kotlin.math.log10
  * __Complexity:__ O(N)
  *
  * @see Solution_13_Roman_to_Integer
- * @author Daniil Kuprianov
+ * @author Daniil Kupriyanov
  */
 
 class Solution_12_Integer_to_Roman : LeetcodeSolution(MEDIUM) {

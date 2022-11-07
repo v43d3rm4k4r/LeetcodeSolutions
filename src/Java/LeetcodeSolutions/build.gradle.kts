@@ -1,8 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("java")
-    id("com.github.johnrengelman.shadow") version "7.0.0"
+    //id("java")
+    //id("com.github.johnrengelman.shadow") version "7.0.0"
     kotlin("jvm") version "1.7.20-Beta"
 }
 
@@ -16,8 +16,8 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains:annotations:23.0.0")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
+    //testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
+    //testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
     implementation(kotlin("stdlib-jdk8"))
 }
 

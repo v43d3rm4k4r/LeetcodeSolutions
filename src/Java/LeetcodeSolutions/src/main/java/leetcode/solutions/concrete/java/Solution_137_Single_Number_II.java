@@ -24,7 +24,7 @@ You must implement a solution with a linear runtime complexity and use only cons
  * contain in once, then it should be here, and vice versa.
  * @Complexity: O(N)
  * @See:     {@link Solution_136_Single_Number}
- * @Author: Daniil Kuprianov
+ * @Author: Daniil Kupriyanov
  */
 
 public final class Solution_137_Single_Number_II extends LeetcodeSolution {

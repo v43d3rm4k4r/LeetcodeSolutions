@@ -26,7 +26,7 @@ import leetcode.solutions.annotations.ProblemSolution
  * we check that equality with reversed rhs divided by 10 to skip that middle part.
  *
  * __Complexity:__ O(N)
- * @author Daniil Kuprianov
+ * @author Daniil Kupriyanov
  */
 
 class Solution_9_Palindrome_Number : LeetcodeSolution(EASY) {

@@ -23,7 +23,7 @@ import static leetcode.solutions.Complexity.*;
  * the same number a second time, it will be removed from result. As a result, only a unique value will remain. This
  * solution applies to all cases when all numbers except one occur in the array an even number of times.
  * @Complexity: O(N)
- * @Author: Daniil Kuprianov
+ * @Author: Daniil Kupriyanov
  */
 
 public final class Solution_136_Single_Number extends LeetcodeSolution {

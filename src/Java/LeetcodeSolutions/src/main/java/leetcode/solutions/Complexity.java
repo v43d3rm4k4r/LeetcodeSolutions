@@ -4,7 +4,7 @@ import leetcode.solutions.annotations.ProblemSolution;
 
 /**
  * {@code Complexity} is the enum for {@link ProblemSolution} annotations.
- * @Author: Daniil Kuprianov
+ * @author Daniil Kupriyanov
  */
 
 public enum Complexity {
@@ -12,6 +12,7 @@ public enum Complexity {
     O_logN,
     O_N,
     O_NlogN,
+    O_NM,
     O_N2,
     O_NlogN2,
     O_N3,          // O(N^3)

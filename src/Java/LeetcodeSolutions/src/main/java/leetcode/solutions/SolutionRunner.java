@@ -14,7 +14,7 @@ import leetcode.solutions.concrete.kotlin.*;
 /**
  * {@code SolutionRunner} is the main class which hold solutions list and provides the solutions tests.
  * User can specify concrete solution to run ("--run=X" where X is a solution ID), or run all solutions one by one ("--runAll").
- * @Author: Daniil Kuprianov
+ * @author Daniil Kupriyanov
  */
 
 public final class SolutionRunner {
@@ -86,6 +86,7 @@ public final class SolutionRunner {
         _solutionsFactories.put(125, Solution_125_Valid_Palindrome::new);
         _solutionsFactories.put(136, Solution_136_Single_Number::new);
         _solutionsFactories.put(137, Solution_137_Single_Number_II::new);
+        _solutionsFactories.put(2125, Solution_2125_Number_of_Laser_Beams_in_a_Bank::new);
     }
 }
 

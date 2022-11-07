@@ -23,7 +23,7 @@ import leetcode.solutions.annotations.ProblemSolution
  *
  * __Complexity:__ O(N)
  * @see Solution_12_Integer_to_Roman
- * @author Daniil Kuprianov
+ * @author Daniil Kupriyanov
  */
 
 class Solution_13_Roman_to_Integer : LeetcodeSolution(EASY) {

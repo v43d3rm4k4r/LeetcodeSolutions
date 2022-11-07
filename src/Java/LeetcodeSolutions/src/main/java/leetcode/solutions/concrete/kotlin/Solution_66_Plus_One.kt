@@ -30,7 +30,7 @@ import kotlin.math.log10
  * have to add one to the beginning.
  *
  * __Complexity:__ O(N)
- * @author Daniil Kuprianov
+ * @author Daniil Kupriyanov
  */
 
 class Solution_66_Plus_One : LeetcodeSolution(EASY) {

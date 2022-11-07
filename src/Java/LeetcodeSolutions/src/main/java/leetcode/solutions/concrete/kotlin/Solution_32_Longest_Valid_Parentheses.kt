@@ -22,7 +22,7 @@ import leetcode.solutions.annotations.ProblemSolution
  *
  * __Complexity:__ O(N)
  * @see    Solution_20_Valid_Parentheses
- * @author Daniil Kuprianov
+ * @author Daniil Kupriyanov
  */
 
 class Solution_32_Longest_Valid_Parentheses : LeetcodeSolution(HARD) {

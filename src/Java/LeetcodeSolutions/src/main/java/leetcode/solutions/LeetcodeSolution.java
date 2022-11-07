@@ -5,7 +5,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * {@code LeetcodeSolution} is the superclass of all solutions and includes common info about each solution.
  *  Every solution registered self with the {@code SolutionValidator} to get access to assertion methods.
- * @Author: Daniil Kuprianov
+ * @author Daniil Kupriyanov
  */
 
 public abstract class LeetcodeSolution implements Runnable {

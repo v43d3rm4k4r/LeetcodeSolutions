@@ -22,7 +22,7 @@ import leetcode.solutions.annotations.ProblemSolution
  * to the index for inserting the desired value.
  *
  * __Complexity:__ O(log(N))
- * @author Daniil Kuprianov
+ * @author Daniil Kupriyanov
  */
 
 class Solution_35_Search_Insert_Position : LeetcodeSolution(EASY) {

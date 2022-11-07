@@ -24,7 +24,7 @@ string is valid. An input string is valid if:
  * of the stack should be zero by the end of the method.
  *
  * __Complexity:__ O(N)
- * @author Daniil Kuprianov
+ * @author Daniil Kupriyanov
  */
 
 class Solution_20_Valid_Parentheses : LeetcodeSolution(EASY) {

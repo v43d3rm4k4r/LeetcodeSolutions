@@ -27,7 +27,7 @@ import leetcode.solutions.annotations.ProblemSolution
  *
  * __Complexity:__ O(N)
  * @see    Solution_9_Palindrome_Number
- * @author Daniil Kuprianov
+ * @author Daniil Kupriyanov
  */
 
 class Solution_125_Valid_Palindrome : LeetcodeSolution(EASY) {

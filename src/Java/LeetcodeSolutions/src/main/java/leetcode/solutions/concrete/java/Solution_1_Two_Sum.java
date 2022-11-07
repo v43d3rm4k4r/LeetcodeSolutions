@@ -28,7 +28,7 @@ import java.util.HashMap;
  * <li>Otherwise record the current number-index pair into the map and continue.
  * </ul>
  * @Complexity: O(N)
- * @Author: Daniil Kuprianov
+ * @Author: Daniil Kupriyanov
  */
 
 public final class Solution_1_Two_Sum extends LeetcodeSolution {
