@@ -17,11 +17,10 @@ import java.util.*
  * There is __one__ laser beam between any __two__ security devices __if both__ conditions are met:
  * - The two devices are located on two __different rows__: `r1` and `r2`, where `r1 < r2`.
  * - For __each__ row `i` where `r1 < i < r2`, there are __no security devices__ in the `ith` row.
-
-Laser beams are independent, i.e., one beam does not interfere nor join with another.
-
-Return _the total number of laser beams in the bank_.
-
+ *
+ * Laser beams are independent, i.e., one beam does not interfere nor join with another.
+ * 
+ * Return _the total number of laser beams in the bank_.
  *
  * __Constraints:__
  * - `m == bank.length`
