@@ -6,7 +6,6 @@ import leetcode.solutions.SolutionValidator.*
 import leetcode.solutions.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
-import java.util.*
 
 /**
  * __Problem:__ Anti-theft security devices are activated inside a bank. You are given a __0-indexed__ binary string
@@ -19,7 +18,7 @@ import java.util.*
  * - For __each__ row `i` where `r1 < i < r2`, there are __no security devices__ in the `ith` row.
  *
  * Laser beams are independent, i.e., one beam does not interfere nor join with another.
- * 
+ *
  * Return _the total number of laser beams in the bank_.
  *
  * __Constraints:__

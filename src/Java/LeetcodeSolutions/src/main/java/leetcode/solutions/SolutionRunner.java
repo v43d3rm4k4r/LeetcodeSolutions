@@ -10,6 +10,7 @@ import leetcode.solutions.concrete.kotlin.*;
 
 // TODO: measure solutions time
 // TODO: fix logger or use System.out
+// TODO: do time complexity refactoring in another branch
 
 /**
  * {@code SolutionRunner} is the main class which hold solutions list and provides the solutions tests.
@@ -86,6 +87,7 @@ public final class SolutionRunner {
         _solutionsFactories.put(125, Solution_125_Valid_Palindrome::new);
         _solutionsFactories.put(136, Solution_136_Single_Number::new);
         _solutionsFactories.put(137, Solution_137_Single_Number_II::new);
+        _solutionsFactories.put(807, Solution_807_Max_Increase_to_Keep_City_Skyline::new);
         _solutionsFactories.put(2125, Solution_2125_Number_of_Laser_Beams_in_a_Bank::new);
     }
 }

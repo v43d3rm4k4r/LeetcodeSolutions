@@ -35,7 +35,7 @@ class Solution_12_Integer_to_Roman : LeetcodeSolution(MEDIUM) {
     @ProblemSolution(complexity = O_N)
     private fun intToRoman1(num: Int): String {
         var numCopy = num
-        var digit = 0
+        var digit: Int
         var result = ""
         for (i in 0..log10(num.toFloat()).toInt()) {
             digit = numCopy % 10
@@ -51,17 +51,17 @@ class Solution_12_Integer_to_Roman : LeetcodeSolution(MEDIUM) {
                 }
                 4 -> {
                     result = when (i) {
-                        0 -> "IV" + result
-                        1 -> "XL" + result
-                        2 -> "CD" + result
+                        0 -> "IV$result"
+                        1 -> "XL$result"
+                        2 -> "CD$result"
                         else -> result
                     }
                 }
                 5 -> {
                     result = when (i) {
-                        0 -> "V" + result
-                        1 -> "L" + result
-                        2 -> "D" + result
+                        0 -> "V$result"
+                        1 -> "L$result"
+                        2 -> "D$result"
                         else -> result
                     }
                 }
@@ -75,9 +75,9 @@ class Solution_12_Integer_to_Roman : LeetcodeSolution(MEDIUM) {
                 }
                 9 -> {
                     result = when (i) {
-                        0 -> "IX" + result
-                        1 -> "XC" + result
-                        2 -> "CM" + result
+                        0 -> "IX$result"
+                        1 -> "XC$result"
+                        2 -> "CM$result"
                         else -> result
                     }
                 }
@@ -100,8 +100,8 @@ class Solution_12_Integer_to_Roman : LeetcodeSolution(MEDIUM) {
         return result
     }
 
-    @ProblemSolutionData(solution = 2)
     companion object {
+        @ProblemSolutionData(solution = 2)
         val ROMANS = arrayOf(
             arrayOf("", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"),
             arrayOf("", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"),
