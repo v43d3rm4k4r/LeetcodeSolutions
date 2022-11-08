@@ -7,4 +7,4 @@ It is a tiny framework for running and testing specified solutions from leetcode
 ## Features:
 - Concrete solution running (use `--run=N` arg, where N is solution ID);
 - All solutions running (`--runAll`);
-- Showing overall stats - (`--stats`)
+- Showing overall stats (`--stats`)
