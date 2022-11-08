@@ -8,9 +8,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Target(ElementType.METHOD)
-@Retention(RetentionPolicy.SOURCE)
+@Retention(RetentionPolicy.RUNTIME)
 public @interface ProblemSolution {
-    int maxArgs() default 1;
-    int minArgs() default 1;
     Complexity complexity() default Complexity.DEFAULT;
 }

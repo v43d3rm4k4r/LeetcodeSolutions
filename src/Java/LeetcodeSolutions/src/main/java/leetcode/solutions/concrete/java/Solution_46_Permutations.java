@@ -19,7 +19,7 @@ public final class Solution_46_Permutations extends LeetcodeSolution {
 
     public Solution_46_Permutations() { super(MEDIUM); resolveConcreteSolutionInfo(this); }
 
-    private @ProblemSolutionData ArrayList<List<Integer>> _result = new ArrayList<>();
+    private final @ProblemSolutionData ArrayList<List<Integer>> _result = new ArrayList<>();
 
     @ProblemSolution(complexity = O_NFactorial)
     private void backtrack(@NotNull List<Integer> nums, int index) {

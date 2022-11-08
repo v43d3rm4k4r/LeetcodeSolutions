@@ -18,5 +18,5 @@ public enum Complexity {
     O_N3,          // O(N^3)
     O_2N,          // O(2^N)
     O_NFactorial,
-    DEFAULT        // for higher-order methods (not implementations)
+    DEFAULT        // for companion methods (not implementations)
 }
