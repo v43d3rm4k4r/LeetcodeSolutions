@@ -11,3 +11,5 @@ It is a tiny framework for running and testing specified solutions from leetcode
     - Total solutions count;
     - Total solved problems difficulties;
     - The most frequent time & space solutions complexities (_Note that every problem can have multiple solutions_)
+
+![Image alt](https://github.com/v43d3rm4k4r/LeetcodeSolutions/blob/main/src/Java/LeetcodeSolutions/images/stats.png)  
