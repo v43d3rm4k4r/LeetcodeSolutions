@@ -27,7 +27,7 @@ import leetcode.solutions.annotations.ProblemSolution
  * - `1 <= m, n <= 500`
  * - `bank[i][j]` is either `'0'` or `'1'`.
  *
- * __Solution :__ Since laser beams correspond to the number of devices in adjacent rows, multiplied by each
+ * __Solution:__ Since laser beams correspond to the number of devices in adjacent rows, multiplied by each
  * other, there are quite a few variables in this problem, so space complexity is O(1). It remains only to bypass
  * the matrix to multiply neighboring devices.
  *

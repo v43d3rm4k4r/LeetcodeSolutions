@@ -24,7 +24,7 @@ import kotlin.math.log10
  *
  * __Time:__ O(N)
  *
- * __Space:__ O(1)
+ * __Space:__ O(N)
  *
  * __Solution 2:__ Iteratively go through the array from lower to higher digits. If the current number is less than 9,
  * just increment it and return an array. If the number is 9, then we reset the current digit and move on to the next
@@ -33,14 +33,14 @@ import kotlin.math.log10
  *
  * __Time:__ O(N)
  *
- * __Space:__ O(1)
+ * __Space:__ O(N)
  *
  * @author Daniil Kupriyanov
  */
 
 class Solution_66_Plus_One : LeetcodeSolution(EASY) {
 
-    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_1)
+    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_N)
     private fun plusOne1(digits: IntArray): IntArray {
         var asInteger = 0
         var digit = 1
@@ -58,7 +58,7 @@ class Solution_66_Plus_One : LeetcodeSolution(EASY) {
         return result.toIntArray()
     }
 
-    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_1)
+    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_N)
     private fun plusOne2(digits: IntArray): IntArray {
         for (i in digits.indices.reversed()) {
             if (digits[i] == 9) {

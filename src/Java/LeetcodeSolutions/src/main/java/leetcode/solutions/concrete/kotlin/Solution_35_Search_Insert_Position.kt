@@ -23,14 +23,14 @@ import leetcode.solutions.annotations.ProblemSolution
  *
  * __Time:__ O(log(N))
  *
- * __Space:__ O(N)
+ * __Space:__ O(1)
  *
  * @author Daniil Kupriyanov
  */
 
 class Solution_35_Search_Insert_Position : LeetcodeSolution(EASY) {
 
-    @ProblemSolution(timeComplexity = O_logN, spaceComplexity = O_N)
+    @ProblemSolution(timeComplexity = O_logN, spaceComplexity = O_1)
     private fun searchInsert(nums: IntArray, target: Int): Int {
         var left  = 0
         var mid   = -1
