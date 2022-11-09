@@ -2,8 +2,8 @@ package leetcode.solutions.concrete.kotlin
 
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
-import leetcode.solutions.SolutionValidator.*
-import leetcode.solutions.Complexity.*
+import leetcode.solutions.validation.SolutionValidator.*
+import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
 
@@ -34,14 +34,16 @@ import leetcode.solutions.annotations.ProblemSolution
  * 1. Find the maximum values for each row and column
  * 2. Find the minimum of them for each cell, and subtract the initial height of the cell from it
  *
- * __Complexity:__ O(N^2)
+ * __Time:__ O(N^2)
+ *
+ * __Space:__ O(N)
+ *
  * @author Daniil Kupriyanov
  */
 
 class Solution_807_Max_Increase_to_Keep_City_Skyline : LeetcodeSolution(MEDIUM) {
-    init { resolveConcreteSolutionInfo(this) }
 
-    @ProblemSolution(complexity = O_N2)
+    @ProblemSolution(timeComplexity = O_N2, spaceComplexity = O_N)
     fun maxIncreaseKeepingSkyline(grid: Array<IntArray>): Int {
         val rowMaxes = Array(grid.size) { 0 }
         val colMaxes = Array(grid.size) { 0 }

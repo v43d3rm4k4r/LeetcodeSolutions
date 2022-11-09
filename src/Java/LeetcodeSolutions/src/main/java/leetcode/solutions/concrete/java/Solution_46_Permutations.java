@@ -3,6 +3,7 @@ package leetcode.solutions.concrete.java;
 import leetcode.solutions.*;
 import leetcode.solutions.annotations.ProblemInputData;
 import leetcode.solutions.annotations.ProblemSolution;
+import leetcode.solutions.annotations.ProblemSolutionCompanionMethod;
 import leetcode.solutions.annotations.ProblemSolutionData;
 import org.jetbrains.annotations.NotNull;
 
@@ -10,18 +11,18 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static leetcode.solutions.ProblemDifficulty.*;
-import static leetcode.solutions.SolutionValidator.*;
-import static leetcode.solutions.Complexity.*;
+import static leetcode.solutions.validation.SolutionValidator.*;
+import static leetcode.solutions.complexity.Complexity.*;
 
 // To solve this one we will use recursion tree
 
 public final class Solution_46_Permutations extends LeetcodeSolution {
 
-    public Solution_46_Permutations() { super(MEDIUM); resolveConcreteSolutionInfo(this); }
+    public Solution_46_Permutations() { super(MEDIUM); }
 
     private final @ProblemSolutionData ArrayList<List<Integer>> _result = new ArrayList<>();
 
-    @ProblemSolution(complexity = O_NFactorial)
+    @ProblemSolution(timeComplexity = O_NFactorial, spaceComplexity = O_N)
     private void backtrack(@NotNull List<Integer> nums, int index) {
         if (index == nums.size()) {
             _result.add(nums);
@@ -37,7 +38,7 @@ public final class Solution_46_Permutations extends LeetcodeSolution {
         }
     }
 
-    @ProblemSolution
+    @ProblemSolutionCompanionMethod
     private @NotNull List<List<Integer>> permute(int[] nums) {
         backtrack(Arrays.stream(nums).boxed().collect(Collectors.toList()), 0);
         return _result;

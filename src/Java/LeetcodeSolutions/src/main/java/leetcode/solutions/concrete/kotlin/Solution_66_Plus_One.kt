@@ -2,8 +2,8 @@ package leetcode.solutions.concrete.kotlin
 
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
-import leetcode.solutions.SolutionValidator.*
-import leetcode.solutions.Complexity.*
+import leetcode.solutions.validation.SolutionValidator.*
+import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
 import kotlin.math.log10
@@ -22,21 +22,25 @@ import kotlin.math.log10
  * __Solution 1:__ This solution is based on converting an array to a number and vice versa. It does not look too elegant
  * and is not the most effective.
  *
- * __Complexity:__ O(N)
+ * __Time:__ O(N)
+ *
+ * __Space:__ O(1)
  *
  * __Solution 2:__ Iteratively go through the array from lower to higher digits. If the current number is less than 9,
  * just increment it and return an array. If the number is 9, then we reset the current digit and move on to the next
  * iteration. If the array was not returned when exiting the loop, this means that all values are zeros, and you will
  * have to add one to the beginning.
  *
- * __Complexity:__ O(N)
+ * __Time:__ O(N)
+ *
+ * __Space:__ O(1)
+ *
  * @author Daniil Kupriyanov
  */
 
 class Solution_66_Plus_One : LeetcodeSolution(EASY) {
-    init { resolveConcreteSolutionInfo(this) }
 
-    @ProblemSolution(complexity = O_N)
+    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_1)
     private fun plusOne1(digits: IntArray): IntArray {
         var asInteger = 0
         var digit = 1
@@ -54,7 +58,7 @@ class Solution_66_Plus_One : LeetcodeSolution(EASY) {
         return result.toIntArray()
     }
 
-    @ProblemSolution(complexity = O_N)
+    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_1)
     private fun plusOne2(digits: IntArray): IntArray {
         for (i in digits.indices.reversed()) {
             if (digits[i] == 9) {

@@ -6,8 +6,8 @@ import leetcode.solutions.annotations.ProblemSolution;
 import org.jetbrains.annotations.NotNull;
 
 import static leetcode.solutions.ProblemDifficulty.*;
-import static leetcode.solutions.SolutionValidator.*;
-import static leetcode.solutions.Complexity.*;
+import static leetcode.solutions.validation.SolutionValidator.*;
+import static leetcode.solutions.complexity.Complexity.*;
 
 /**
  * @Problem: Given an integer array nums where every element appears three times except for one, which appears exactly
@@ -22,16 +22,17 @@ You must implement a solution with a linear runtime complexity and use only cons
  * @Solution: Will need two variables to store bits of numbers that occur once and twice, while using the XOR
  * operator from the previous problem. The combination of the & and ~ operators literally means this: if it doesn't
  * contain in once, then it should be here, and vice versa.
- * @Complexity: O(N)
+ * @Time: O(N)
+ * @Space: O(1)
  * @See:     {@link Solution_136_Single_Number}
  * @Author: Daniil Kupriyanov
  */
 
 public final class Solution_137_Single_Number_II extends LeetcodeSolution {
 
-    public Solution_137_Single_Number_II() { super(MEDIUM); resolveConcreteSolutionInfo(this);  }
+    public Solution_137_Single_Number_II() { super(MEDIUM); }
 
-    @ProblemSolution(complexity = O_N)
+    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_1)
     private int singleNumber(int @NotNull [] nums) {
         int ones = 0, twos = 0;
         for (var num : nums) {

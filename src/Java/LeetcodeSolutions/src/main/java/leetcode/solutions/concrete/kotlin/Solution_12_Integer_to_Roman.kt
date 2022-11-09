@@ -2,8 +2,8 @@ package leetcode.solutions.concrete.kotlin
 
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
-import leetcode.solutions.SolutionValidator.*
-import leetcode.solutions.Complexity.*
+import leetcode.solutions.validation.SolutionValidator.*
+import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
 import leetcode.solutions.annotations.ProblemSolutionData
@@ -23,16 +23,23 @@ import kotlin.math.log10
  * 2) X can be placed before L (50) and C (100) to make 40 and 90.
  * 3) C can be placed before D (500) and M (1000) to make 400 and 900.
  *
- * __Complexity:__ O(N)
+ * __Time:__ O(N)
+ *
+ * __Space:__ O(1)
+ *
+ * __Solution 2:__ This solution is more elegant in terms of code quality, but requires additional memory overhead.
+ *
+ * __Time:__ O(N)
+ *
+ * __Space:__ O(1)
  *
  * @see Solution_13_Roman_to_Integer
  * @author Daniil Kupriyanov
  */
 
 class Solution_12_Integer_to_Roman : LeetcodeSolution(MEDIUM) {
-    init { resolveConcreteSolutionInfo(this) }
 
-    @ProblemSolution(complexity = O_N)
+    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_1)
     private fun intToRoman1(num: Int): String {
         var numCopy = num
         var digit: Int
@@ -87,13 +94,14 @@ class Solution_12_Integer_to_Roman : LeetcodeSolution(MEDIUM) {
         return result
     }
 
+    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_1)
     private fun intToRoman2(num: Int): String {
         var number = num
         var position = 0
         var result = ""
         while (number > 0) {
             val digit = number % 10
-            result = ROMANS[position][digit] + result
+            result += ROMANS[position][digit]
             number /= 10
             ++position
         }
@@ -106,7 +114,7 @@ class Solution_12_Integer_to_Roman : LeetcodeSolution(MEDIUM) {
             arrayOf("", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"),
             arrayOf("", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"),
             arrayOf("", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"),
-            arrayOf("", "M", "MM", "MMM")
+            arrayOf("", "M", "MM", "MMM"),
         )
     }
 

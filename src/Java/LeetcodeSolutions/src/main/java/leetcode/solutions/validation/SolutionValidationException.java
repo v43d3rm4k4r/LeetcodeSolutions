@@ -1,4 +1,4 @@
-package leetcode.solutions;
+package leetcode.solutions.validation;
 
 /**
  * {@code SolutionValidationException} is the exception class that additionally contains the solution information.
@@ -8,6 +8,7 @@ package leetcode.solutions;
  */
 
 public final class SolutionValidationException extends RuntimeException {
+    
     private final int    _solutionID;
     private final String _solutionName;
 

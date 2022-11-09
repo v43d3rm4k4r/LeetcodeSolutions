@@ -1,5 +1,6 @@
-package leetcode.solutions;
+package leetcode.solutions.validation;
 
+import leetcode.solutions.LeetcodeSolution;
 import org.jetbrains.annotations.NotNull;
 import java.util.Arrays;
 
@@ -11,6 +12,7 @@ import java.util.Arrays;
  */
 
 public final class SolutionValidator {
+
     private static LeetcodeSolution _currentSolution;
 
     private static void throwException(String message) throws SolutionValidationException {

@@ -2,8 +2,8 @@ package leetcode.solutions.concrete.kotlin
 
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
-import leetcode.solutions.SolutionValidator.*
-import leetcode.solutions.Complexity.*
+import leetcode.solutions.validation.SolutionValidator.*
+import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
 
@@ -20,15 +20,17 @@ import leetcode.solutions.annotations.ProblemSolution
  * If there are more right parentheses, then we reset the counters. This algorithm is valid only if it used on both
  * sides, so we repeat the same from the other end of the string. The solution has O(1) space complexity.
  *
- * __Complexity:__ O(N)
+ * __Time:__ O(N)
+ *
+ * __Space:__ O(1)
+ *
  * @see    Solution_20_Valid_Parentheses
  * @author Daniil Kupriyanov
  */
 
 class Solution_32_Longest_Valid_Parentheses : LeetcodeSolution(HARD) {
-    init { resolveConcreteSolutionInfo(this) }
 
-   @ProblemSolution(complexity = O_N)
+   @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_1)
     private fun longestValidParentheses(s: String): Int {
         if (s.length < 2) return 0
         var leftsCounter = 0; var rightsCounter = 0; var result = 0
