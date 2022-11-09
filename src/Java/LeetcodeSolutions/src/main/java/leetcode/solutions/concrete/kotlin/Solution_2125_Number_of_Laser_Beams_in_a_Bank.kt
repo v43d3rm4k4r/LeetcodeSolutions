@@ -2,8 +2,8 @@ package leetcode.solutions.concrete.kotlin
 
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
-import leetcode.solutions.SolutionValidator.*
-import leetcode.solutions.Complexity.*
+import leetcode.solutions.validation.SolutionValidator.*
+import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
 
@@ -31,14 +31,16 @@ import leetcode.solutions.annotations.ProblemSolution
  * other, there are quite a few variables in this problem, so space complexity is O(1). It remains only to bypass
  * the matrix to multiply neighboring devices.
  *
- * __Complexity:__ O(N*M)
+ * __Time:__ O(N*M)
+ *
+ * __Space:__ O(1)
+ *
  * @author Daniil Kupriyanov
  */
 
 class Solution_2125_Number_of_Laser_Beams_in_a_Bank : LeetcodeSolution(MEDIUM) {
-    init { resolveConcreteSolutionInfo(this) }
 
-    @ProblemSolution(complexity = O_NM)
+    @ProblemSolution(timeComplexity = O_NM, spaceComplexity = O_1)
     fun numberOfBeams(bank: Array<String>): Int {
         var lastRowDevices = 0
         var currentRowDevices = 0

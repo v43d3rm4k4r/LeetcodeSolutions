@@ -5,8 +5,8 @@ import leetcode.solutions.annotations.ProblemInputData;
 import leetcode.solutions.annotations.ProblemSolution;
 
 import static leetcode.solutions.ProblemDifficulty.*;
-import static leetcode.solutions.SolutionValidator.*;
-import static leetcode.solutions.Complexity.*;
+import static leetcode.solutions.validation.SolutionValidator.*;
+import static leetcode.solutions.complexity.Complexity.*;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -27,15 +27,16 @@ import java.util.HashMap;
  * <li>If the remainder is present in num_to_index, return the two indices.
  * <li>Otherwise record the current number-index pair into the map and continue.
  * </ul>
- * @Complexity: O(N)
+ * @Time: O(N)
+ * @Space: O(1)
  * @Author: Daniil Kupriyanov
  */
 
 public final class Solution_1_Two_Sum extends LeetcodeSolution {
 
-    public Solution_1_Two_Sum() { super(EASY); resolveConcreteSolutionInfo(this); }
+    public Solution_1_Two_Sum() { super(EASY); }
 
-    @ProblemSolution(complexity = O_N)
+    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_1)
     private int[] twoSum(int[] nums, int target) {
         var numToIndex = new HashMap<Integer, Integer>();
         for (var i = 0; i < nums.length; ++i) {

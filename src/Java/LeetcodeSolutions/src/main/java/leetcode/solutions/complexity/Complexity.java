@@ -1,4 +1,4 @@
-package leetcode.solutions;
+package leetcode.solutions.complexity;
 
 import leetcode.solutions.annotations.ProblemSolution;
 

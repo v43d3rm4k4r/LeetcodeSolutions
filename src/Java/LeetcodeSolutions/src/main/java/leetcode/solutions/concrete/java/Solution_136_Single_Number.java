@@ -6,8 +6,8 @@ import leetcode.solutions.annotations.ProblemSolution;
 import org.jetbrains.annotations.NotNull;
 
 import static leetcode.solutions.ProblemDifficulty.*;
-import static leetcode.solutions.SolutionValidator.*;
-import static leetcode.solutions.Complexity.*;
+import static leetcode.solutions.validation.SolutionValidator.*;
+import static leetcode.solutions.complexity.Complexity.*;
 
 /**
  * @Problem: Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
@@ -22,15 +22,16 @@ import static leetcode.solutions.Complexity.*;
  * Iterating the array and apply XOR operation from each of them to result variable. When the operation is applied with
  * the same number a second time, it will be removed from result. As a result, only a unique value will remain. This
  * solution applies to all cases when all numbers except one occur in the array an even number of times.
- * @Complexity: O(N)
+ * @Time: O(N)
+ * @Space: O(1)
  * @Author: Daniil Kupriyanov
  */
 
 public final class Solution_136_Single_Number extends LeetcodeSolution {
 
-    public Solution_136_Single_Number() { super(EASY); resolveConcreteSolutionInfo(this); }
+    public Solution_136_Single_Number() { super(EASY); }
 
-    @ProblemSolution(complexity = O_N)
+    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_1)
     private int singleNumber(int @NotNull [] nums) {
         var result = 0;
         for (var i = 0; i < nums.length; ++i) {

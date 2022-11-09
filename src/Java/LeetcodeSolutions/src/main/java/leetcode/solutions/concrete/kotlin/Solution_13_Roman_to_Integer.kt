@@ -2,8 +2,8 @@ package leetcode.solutions.concrete.kotlin
 
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
-import leetcode.solutions.SolutionValidator.*
-import leetcode.solutions.Complexity.*
+import leetcode.solutions.validation.SolutionValidator.*
+import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
 
@@ -21,15 +21,17 @@ import leetcode.solutions.annotations.ProblemSolution
  * 2) X can be placed before L (50) and C (100) to make 40 and 90.
  * 3) C can be placed before D (500) and M (1000) to make 400 and 900.
  *
- * __Complexity:__ O(N)
+ * __Time:__ O(N)
+ *
+ * __Space:__ O(1)
+ *
  * @see Solution_12_Integer_to_Roman
  * @author Daniil Kupriyanov
  */
 
 class Solution_13_Roman_to_Integer : LeetcodeSolution(EASY) {
-    init { resolveConcreteSolutionInfo(this) }
 
-    @ProblemSolution(complexity = O_N)
+    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_1)
     private fun romanToInt(s: String): Int {
         var result = 0
         var charBefore = '0'

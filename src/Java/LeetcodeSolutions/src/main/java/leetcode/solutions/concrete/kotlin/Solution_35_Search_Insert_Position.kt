@@ -2,8 +2,8 @@ package leetcode.solutions.concrete.kotlin
 
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
-import leetcode.solutions.SolutionValidator.*
-import leetcode.solutions.Complexity.*
+import leetcode.solutions.validation.SolutionValidator.*
+import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
 
@@ -21,14 +21,16 @@ import leetcode.solutions.annotations.ProblemSolution
  * __Solution:__ Need to user classic binary search. In the absence of the desired value, we return left, which corresponds
  * to the index for inserting the desired value.
  *
- * __Complexity:__ O(log(N))
+ * __Time:__ O(log(N))
+ *
+ * __Space:__ O(N)
+ *
  * @author Daniil Kupriyanov
  */
 
 class Solution_35_Search_Insert_Position : LeetcodeSolution(EASY) {
-    init { resolveConcreteSolutionInfo(this) }
 
-    @ProblemSolution(complexity = O_logN)
+    @ProblemSolution(timeComplexity = O_logN, spaceComplexity = O_N)
     private fun searchInsert(nums: IntArray, target: Int): Int {
         var left  = 0
         var mid   = -1

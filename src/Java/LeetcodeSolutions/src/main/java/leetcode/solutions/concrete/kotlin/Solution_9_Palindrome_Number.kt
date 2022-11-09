@@ -2,8 +2,8 @@ package leetcode.solutions.concrete.kotlin
 
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
-import leetcode.solutions.SolutionValidator.*
-import leetcode.solutions.Complexity.*
+import leetcode.solutions.validation.SolutionValidator.*
+import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
 
@@ -18,21 +18,24 @@ import leetcode.solutions.annotations.ProblemSolution
  * - Convert a number to a string for iteration.
  * - Iterate through the array to the middle using counters for the beginning and end, comparing the values.
  *
- * __Complexity:__ O(N)
+ * __Time:__ O(N)
+ *
+ * __Space:__ O(1)
  *
  * __Solution 2:__
  * - Reverse half of x while dividing it to become the upper half.
  * - In the end check if reversed lower half is equal to the above half, or (in case if it's an odd length palindrome)
  * we check that equality with reversed rhs divided by 10 to skip that middle part.
  *
- * __Complexity:__ O(N)
+ * __Time:__ O(log(N))
+ *
+ * __Space:__ O(1)
  * @author Daniil Kupriyanov
  */
 
 class Solution_9_Palindrome_Number : LeetcodeSolution(EASY) {
-    init { resolveConcreteSolutionInfo(this) }
 
-    @ProblemSolution(complexity = O_N)
+    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_1)
     private fun isPalindrome1(x: Int): Boolean {
         if (x < 0 || (x > 0 && (x % 10 == 0))) return false
         val asString = x.toString()
@@ -47,7 +50,7 @@ class Solution_9_Palindrome_Number : LeetcodeSolution(EASY) {
         return true
     }
 
-    @ProblemSolution(complexity = O_logN)
+    @ProblemSolution(timeComplexity = O_logN, spaceComplexity = O_1)
     private fun isPalindrome2(x: Int): Boolean {
         if (x < 0 || (x > 0 && (x % 10 == 0))) return false
         var xCpy = x; var rhs = 0

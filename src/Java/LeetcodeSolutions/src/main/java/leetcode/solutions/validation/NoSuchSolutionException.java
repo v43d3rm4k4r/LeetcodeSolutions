@@ -1,4 +1,4 @@
-package leetcode.solutions;
+package leetcode.solutions.validation;
 
 import org.jetbrains.annotations.NotNull;
 

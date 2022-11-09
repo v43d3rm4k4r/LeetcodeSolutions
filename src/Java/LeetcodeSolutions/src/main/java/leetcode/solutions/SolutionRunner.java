@@ -6,10 +6,12 @@ import java.util.logging.Logger;
 import java.util.logging.Level;
 import java.util.logging.SimpleFormatter;
 import static java.lang.System.out;
-import static leetcode.solutions.Complexity.*;
 
 import leetcode.solutions.concrete.java.*;
 import leetcode.solutions.concrete.kotlin.*;
+import leetcode.solutions.validation.NoSuchSolutionException;
+import leetcode.solutions.validation.SolutionValidationException;
+import org.jetbrains.annotations.NotNull;
 
 // TODO: measure solutions time
 // TODO: fix logger or use System.out
@@ -76,40 +78,95 @@ public final class SolutionRunner {
         }
     }
 
+    private static int totalSolved;
     private static void showStats() {
-        int easyCount = 0, mediumCount = 0, hardCount = 0, totalSolved = solutionsFactories.entrySet().size();
-        int time1Count = 0, timeLogNCount = 0, timeNCount = 0, timeNLogNCount = 0, timeNMCount = 0, timeN2Count = 0,
-            timeNLogN2Count = 0, timeN3Count = 0, time2NCount = 0, timeNFactorialCount = 0;
+        int easy = 0, medium = 0, hard = 0;
+        int time1 = 0, timeLogN = 0, timeN = 0, timeNLogN = 0, timeNM = 0, timeN2 = 0,
+            timeNLogN2 = 0, timeN3 = 0, time2N = 0, timeNFactorial = 0;
+        int space1 = 0, spaceLogN = 0, spaceN = 0, spaceNLogN = 0, spaceNM = 0, spaceN2 = 0,
+                spaceNLogN2 = 0, spaceN3 = 0, space2N = 0, spaceNFactorial = 0;
+        int totalProblems = 0;
+
         for (var solution : solutionsFactories.entrySet()) {
             var concreteSolution = solution.getValue().create();
 
             var difficulty = concreteSolution.getProblemDifficulty();
-            if (difficulty == ProblemDifficulty.EASY)        ++easyCount;
-            else if (difficulty == ProblemDifficulty.MEDIUM) ++mediumCount;
-            else if (difficulty == ProblemDifficulty.HARD)   ++hardCount;
+            if (difficulty == ProblemDifficulty.EASY)        ++easy;
+            else if (difficulty == ProblemDifficulty.MEDIUM) ++medium;
+            else if (difficulty == ProblemDifficulty.HARD)   ++hard;
 
-            var complexity = concreteSolution.getSolutionComplexity();
-            switch (complexity) {
-                case O_1          -> ++time1Count;
-                case O_logN       -> ++timeLogNCount;
-                case O_N          -> ++timeNCount;
-                case O_NlogN      -> ++timeNLogNCount;
-                case O_NM         -> ++timeNMCount;
-                case O_N2         -> ++timeN2Count;
-                case O_NlogN2     -> ++timeNLogN2Count;
-                case O_N3         -> ++timeN3Count;
-                case O_2N         -> ++time2NCount;
-                case O_NFactorial -> ++timeNFactorialCount;
+            var timeComplexities = concreteSolution.getSolutionTimeComplexities();
+            for (var complexity : timeComplexities) {
+                switch (complexity) {
+                    case O_1          -> ++time1;
+                    case O_logN       -> ++timeLogN;
+                    case O_N          -> ++timeN;
+                    case O_NlogN      -> ++timeNLogN;
+                    case O_NM         -> ++timeNM;
+                    case O_N2         -> ++timeN2;
+                    case O_NlogN2     -> ++timeNLogN2;
+                    case O_N3         -> ++timeN3;
+                    case O_2N         -> ++time2N;
+                    case O_NFactorial -> ++timeNFactorial;
+                }
             }
+            var spaceComplexities = concreteSolution.getSolutionSpaceComplexities();
+            for (var complexity : spaceComplexities) {
+                switch (complexity) {
+                    case O_1          -> ++space1;
+                    case O_logN       -> ++spaceLogN;
+                    case O_N          -> ++spaceN;
+                    case O_NlogN      -> ++spaceNLogN;
+                    case O_NM         -> ++spaceNM;
+                    case O_N2         -> ++spaceN2;
+                    case O_NlogN2     -> ++spaceNLogN2;
+                    case O_N3         -> ++spaceN3;
+                    case O_2N         -> ++space2N;
+                    case O_NFactorial -> ++spaceNFactorial;
+                }
+                ++totalSolved;
+            }
+            ++totalProblems;
         }
 
-        out.println("Total solutions solved: " + totalSolved);
-        out.println("Easy: "   + easyCount);
-        out.println("Medium: " + mediumCount);
-        out.println("Hard: "   + hardCount + "\n");
+        out.println("\nTotal solutions accepted: " + totalSolved);
+        out.println("Total problems solved: " + totalProblems);
+        out.println("Easy: "   + easy);
+        out.println("Medium: " + medium);
+        out.println("Hard: "   + hard);
 
-        out.println("Time complexity stats:");
-        // TODO: implement
+        out.println("\nTime complexity stats:");
+        printfIfNotZero("O(1)",         time1);
+        printfIfNotZero("O(log(N))",    timeLogN);
+        printfIfNotZero("O(N)",         timeN);
+        printfIfNotZero("O(Nlog(N))",   timeNLogN);
+        printfIfNotZero("O(N*M)",       timeNM);
+        printfIfNotZero("O(N^2)",       timeN2);
+        printfIfNotZero("O(Nlog(N)^2)", timeNLogN2);
+        printfIfNotZero("O(N^3)",       timeN3);
+        printfIfNotZero("O(2N)",        time2N);
+        printfIfNotZero("O(N!)",        timeNFactorial);
+
+        out.println("\nSpace complexity stats:");
+        printfIfNotZero("O(1)",         space1);
+        printfIfNotZero("O(log(N))",    spaceLogN);
+        printfIfNotZero("O(N)",         spaceN);
+        printfIfNotZero("O(Nlog(N))",   spaceNLogN);
+        printfIfNotZero("O(N*M)",       spaceNM);
+        printfIfNotZero("O(N^2)",       spaceN2);
+        printfIfNotZero("O(Nlog(N)^2)", spaceNLogN2);
+        printfIfNotZero("O(N^3)",       spaceN3);
+        printfIfNotZero("O(2N)",        space2N);
+        printfIfNotZero("O(N!)",        spaceNFactorial);
+    }
+
+    private static void printfIfNotZero(@NotNull String str, int value) {
+        if (value == 0) return;
+        var percent = ((float)value / (float)totalSolved) * 100f;
+        var delimiter = 2;
+        var sharpsCount = (int)percent / delimiter; // 2% == one sharp
+        var padding = 10 - str.length();
+        out.printf("%-65s%d (%.2f%s)%n", str + ": " + " ".repeat(padding) + "#".repeat(sharpsCount), value, percent, "%");
     }
 
     private static void initSolutions() {

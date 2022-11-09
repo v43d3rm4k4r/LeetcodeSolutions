@@ -2,8 +2,8 @@ package leetcode.solutions.concrete.kotlin
 
 import leetcode.solutions.*;
 import leetcode.solutions.ProblemDifficulty.*
-import leetcode.solutions.SolutionValidator.*
-import leetcode.solutions.Complexity.*
+import leetcode.solutions.validation.SolutionValidator.*
+import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 
 /**
@@ -23,9 +23,8 @@ import leetcode.solutions.annotations.ProblemInputData
  */
 
 class Solution_11_Container_With_Most_Water : LeetcodeSolution(MEDIUM) {
-    init { resolveConcreteSolutionInfo(this) }
 
-    //@ProblemSolution(complexity = O_??)
+    //@ProblemSolution(timeComplexity = O_??)
     private fun maxArea(height: IntArray): Int {
         var maxWaterArea = 0
         var i = 0;

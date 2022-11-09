@@ -2,8 +2,8 @@ package leetcode.solutions.concrete.kotlin
 
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
-import leetcode.solutions.SolutionValidator.*
-import leetcode.solutions.Complexity.*
+import leetcode.solutions.validation.SolutionValidator.*
+import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
 
@@ -19,21 +19,25 @@ import leetcode.solutions.annotations.ProblemSolution
  * __Solution 1:__ Mutate string checking weather current character is letter or digit. Then using two-sided comparison
  * for each character.
  *
- * __Complexity:__ O(N)
+ * __Time:__ O(N)
+ *
+ * __Space:__ O(N)
  *
  * __Solution 2:__ This solution is more efficient in terms of speed and memory. An intermediate string is not created
  * here, but the passage through the given string occurs immediately. At the same time, the counters i and j are
  * synchronized - as long as one of them has an invalid symbol, the other counter does not move.
  *
- * __Complexity:__ O(N)
+ * __Time:__ O(N)
+ *
+ * __Space:__ O(1)
+ *
  * @see    Solution_9_Palindrome_Number
  * @author Daniil Kupriyanov
  */
 
 class Solution_125_Valid_Palindrome : LeetcodeSolution(EASY) {
-    init { resolveConcreteSolutionInfo(this) }
 
-    @ProblemSolution(complexity = O_N)
+    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_N)
     private fun isPalindrome1(s: String): Boolean {
         val filteredStr = StringBuilder()
         for (i in s.indices) {
@@ -52,7 +56,7 @@ class Solution_125_Valid_Palindrome : LeetcodeSolution(EASY) {
         return true
     }
 
-    @ProblemSolution(complexity = O_N)
+    @ProblemSolution(timeComplexity = O_N, spaceComplexity =  O_1)
     private fun isPalindrome2(s: String): Boolean {
         var i = 0
         var j = s.length - 1

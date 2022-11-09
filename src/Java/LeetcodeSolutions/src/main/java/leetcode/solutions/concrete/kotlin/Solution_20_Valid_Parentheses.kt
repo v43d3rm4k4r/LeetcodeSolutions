@@ -2,8 +2,8 @@ package leetcode.solutions.concrete.kotlin
 
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
-import leetcode.solutions.SolutionValidator.*
-import leetcode.solutions.Complexity.*
+import leetcode.solutions.validation.SolutionValidator.*
+import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
 import leetcode.solutions.annotations.ProblemSolutionData
@@ -23,12 +23,14 @@ string is valid. An input string is valid if:
  * written to the stack. If it is closing, its type is compared with the type of the last bracket on the stack. The size
  * of the stack should be zero by the end of the method.
  *
- * __Complexity:__ O(N)
+ * __Time:__ O(N)
+ *
+ * __Space:__ O(N)
+ *
  * @author Daniil Kupriyanov
  */
 
 class Solution_20_Valid_Parentheses : LeetcodeSolution(EASY) {
-    init { resolveConcreteSolutionInfo(this) }
 
     @ProblemSolutionData
     private enum class BracketType {
@@ -37,7 +39,7 @@ class Solution_20_Valid_Parentheses : LeetcodeSolution(EASY) {
         CURLY_BRACKETS,
     }
 
-    @ProblemSolution(complexity = O_N)
+    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_N)
     private fun isValid(s: String): Boolean {
         if (s.length < 2) return false
         val bracketsStack = LinkedList<BracketType>() // no need in slow java.util.Stack

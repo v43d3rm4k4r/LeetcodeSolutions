@@ -1,7 +1,11 @@
 package leetcode.solutions;
 
 import leetcode.solutions.annotations.ProblemSolution;
-import org.jetbrains.annotations.NotNull;
+import leetcode.solutions.complexity.Complexity;
+import leetcode.solutions.validation.SolutionValidator;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * {@code LeetcodeSolution} is the superclass of all solutions and includes common info about each solution.
@@ -11,21 +15,23 @@ import org.jetbrains.annotations.NotNull;
 
 public abstract class LeetcodeSolution implements Runnable {
 
-    private int        solutionID;
-    private String     solutionName;
-    private Complexity solutionComplexity; // TODO: add space complexity
+    private int    solutionID;
+    private String solutionName;
+    final private List<Complexity> solutionTimeComplexities  = new ArrayList<>(1);
+    final private List<Complexity> solutionSpaceComplexities = new ArrayList<>(1);
     final private ProblemDifficulty problemDifficulty;
-
 
     protected LeetcodeSolution(ProblemDifficulty problemDifficulty) {
         this.problemDifficulty = problemDifficulty;
         SolutionValidator.registerSolution(this);
+        resolveConcreteSolutionInfo();
     }
 
-    public int               getSolutionID()         { return solutionID; }
-    public String            getSolutionName()       { return solutionName; }
-    public Complexity        getSolutionComplexity() { return solutionComplexity; }
-    public ProblemDifficulty getProblemDifficulty()  { return problemDifficulty; }
+    public int               getSolutionID()                { return solutionID; }
+    public String            getSolutionName()              { return solutionName; }
+    public List<Complexity>  getSolutionTimeComplexities()  { return solutionTimeComplexities; }
+    public List<Complexity>  getSolutionSpaceComplexities() { return solutionSpaceComplexities; }
+    public ProblemDifficulty getProblemDifficulty()         { return problemDifficulty; }
 
     @Override
     public String toString() {
@@ -33,17 +39,18 @@ public abstract class LeetcodeSolution implements Runnable {
                 " difficulty\n";
     }
 
-    protected void resolveConcreteSolutionInfo(@NotNull LeetcodeSolution concrete) {
-        var className = concrete.getClass().getSimpleName();
-        solutionID   = Integer.parseInt(className.split("_")[1]);
-        solutionName = className.replace("_", " ");
-        solutionName =  solutionName.substring(solutionName.indexOf(" ", solutionName.indexOf(" ") + 1) + 1);
+    private void resolveConcreteSolutionInfo() {
+        var className = getClass().getSimpleName();
+        solutionID    = Integer.parseInt(className.split("_")[1]);
+        solutionName  = className.replace("_", " ");
+        solutionName  =  solutionName.substring(solutionName.indexOf(" ", solutionName.indexOf(" ") + 1) + 1);
 
-        var methods = concrete.getClass().getDeclaredMethods();
+        var methods = getClass().getDeclaredMethods();
         for (var method : methods) {
             if (method.isAnnotationPresent(ProblemSolution.class)) {
-                var solution = method.getAnnotation(ProblemSolution.class);
-                solutionComplexity = solution.complexity();
+                var solutionComplexities = method.getAnnotation(ProblemSolution.class);
+                solutionTimeComplexities.add(solutionComplexities.timeComplexity());
+                solutionSpaceComplexities.add(solutionComplexities.spaceComplexity());
             }
         }
     }
