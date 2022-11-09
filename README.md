@@ -10,4 +10,4 @@ It is a tiny framework for running and testing specified solutions from leetcode
 - Showing overall stats (`--stats`):  
     - Total solutions count;
     - Total solved problems difficulties;
-    - The most frequent time & space solutions complexities
+    - The most frequent time & space solutions complexities (_Note that every problem can have multiple solutions_)
