@@ -17,8 +17,8 @@ public abstract class LeetcodeSolution implements Runnable {
 
     private int    solutionID;
     private String solutionName;
-    final private List<Complexity> solutionTimeComplexities  = new ArrayList<>(1);
-    final private List<Complexity> solutionSpaceComplexities = new ArrayList<>(1);
+    final private List<Complexity>  solutionTimeComplexities  = new ArrayList<>(1);
+    final private List<Complexity>  solutionSpaceComplexities = new ArrayList<>(1);
     final private ProblemDifficulty problemDifficulty;
 
     protected LeetcodeSolution(ProblemDifficulty problemDifficulty) {
@@ -43,7 +43,7 @@ public abstract class LeetcodeSolution implements Runnable {
         var className = getClass().getSimpleName();
         solutionID    = Integer.parseInt(className.split("_")[1]);
         solutionName  = className.replace("_", " ");
-        solutionName  =  solutionName.substring(solutionName.indexOf(" ", solutionName.indexOf(" ") + 1) + 1);
+        solutionName  = solutionName.substring(solutionName.indexOf(" ", solutionName.indexOf(" ") + 1) + 1);
 
         var methods = getClass().getDeclaredMethods();
         for (var method : methods) {

@@ -1,67 +1,56 @@
 package leetcode.solutions;
 
 import java.util.*;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Logger;
-import java.util.logging.Level;
-import java.util.logging.SimpleFormatter;
 import static java.lang.System.out;
-
+import org.jetbrains.annotations.NotNull;
 import leetcode.solutions.concrete.java.*;
 import leetcode.solutions.concrete.kotlin.*;
 import leetcode.solutions.validation.NoSuchSolutionException;
 import leetcode.solutions.validation.SolutionValidationException;
-import org.jetbrains.annotations.NotNull;
-
-// TODO: measure solutions time
-// TODO: fix logger or use System.out
-// TODO: do time complexity refactoring in another branch
 
 /**
  * {@code SolutionRunner} is the main class which hold solutions list and provides the solutions tests.
- * User can specify concrete solution to run ("--run=X" where X is a solution ID), or run all solutions one by one ("--runAll").
+ * User can specify concrete solution to run ({@code --run=X} where X is a solution ID), or run all 
+ * solutions one by one ({@code --runAll}). Use {@code --stats} to show statistics.
  * @author Daniil Kupriyanov
  */
 
 public final class SolutionRunner {
 
-    private static final LinkedHashMap<Integer, SolutionsFactory<LeetcodeSolution>> solutionsFactories = new LinkedHashMap<>();
-    private static final Logger LOGGER = Logger.getLogger(SolutionRunner.class.getName());
+    private final LinkedHashMap<Integer, SolutionsFactory<LeetcodeSolution>> solutionsFactories = new LinkedHashMap<>();
 
-    static {
-        LOGGER.setLevel(Level.FINEST);
-        var consoleHandler = new ConsoleHandler();
-        LOGGER.addHandler(consoleHandler);
-        LOGGER.setLevel(Level.ALL);
-        consoleHandler.setFormatter(new SimpleFormatter());
-    }
-
-    public static void main(String[] args) {
-        LOGGER.log(Level.FINE, "Started with args: {0}", Arrays.toString(args));
+    public void main(String[] args) {
         initSolutions();
         for (String arg : args) {
             if (arg.contains("--runAll")) {
                 try {
                     runAll();
                 } catch (SolutionValidationException exception) {
-                    LOGGER.log(Level.SEVERE, "{0}: solutionID: {1} solutionName: {2}",
-                            new Object[] {exception.getMessage(), exception.getSolutionID(), exception.getSolutionName()});
+                    out.printf("%s: solutionID: %d solutionName: %s",
+                            exception.getMessage(),
+                            exception.getSolutionID(),
+                            exception.getSolutionName()
+                    );
                 }
                 break;
             } else if (arg.contains("--run=")) {
                 var solutionToRun = Integer.parseInt(arg.substring(6));
                 try {
                     var solution = solutionsFactories.get(solutionToRun);
-                    if (solution == null) throw new NoSuchSolutionException("There is no solution with '" + solutionToRun + "' ID");
-                    LOGGER.log(Level.FINE, "Running {0}", solution.toString());
+                    if (solution == null)
+                        throw new NoSuchSolutionException("There is no solution with '" + solutionToRun + "' ID");
+                    out.printf("Running %s", solution);
                     try {
                         solution.create().run();
                     } catch (SolutionValidationException exception) {
-                        LOGGER.log(Level.SEVERE, "{0}: solutionID: {1} solutionName: {2}",
-                                new Object[] {exception.getMessage(), exception.getSolutionID(), exception.getSolutionName()});
+                        out.printf("%s: solutionID: %d solutionName: %s",
+                                exception.getMessage(),
+                                exception.getSolutionID(),
+                                exception.getSolutionName()
+                        );
                     }
                 } catch (NoSuchSolutionException exception) {
-                    LOGGER.log(Level.SEVERE, "{0}", exception.getMessage());
+                    out.printf("%s", exception.getMessage());
                 }
                 break;
             }
@@ -71,15 +60,15 @@ public final class SolutionRunner {
         }
     }
 
-    private static void runAll() {
+    private void runAll() {
         for (var solution : solutionsFactories.entrySet()) {
-            LOGGER.log(Level.FINE, "Running {0}", solution.toString());
+            out.printf("Running %s", solution);
             solution.getValue().create().run();
         }
     }
 
-    private static int totalSolved;
-    private static void showStats() {
+    private int totalSolved;
+    private void showStats() {
         int easy = 0, medium = 0, hard = 0;
         int time1 = 0, timeLogN = 0, timeN = 0, timeNLogN = 0, timeNM = 0, timeN2 = 0,
             timeNLogN2 = 0, timeN3 = 0, time2N = 0, timeNFactorial = 0;
@@ -160,7 +149,7 @@ public final class SolutionRunner {
         printfIfNotZero("O(N!)",        spaceNFactorial);
     }
 
-    private static void printfIfNotZero(@NotNull String str, int value) {
+    private void printfIfNotZero(@NotNull String str, int value) {
         if (value == 0) return;
         var percent = ((float)value / (float)totalSolved) * 100f;
         var delimiter = 2;
@@ -169,7 +158,7 @@ public final class SolutionRunner {
         out.printf("%-65s%d (%.2f%s)%n", str + ": " + " ".repeat(padding) + "#".repeat(sharpsCount), value, percent, "%");
     }
 
-    private static void initSolutions() {
+    private void initSolutions() {
         solutionsFactories.put(1,    Solution_1_Two_Sum::new);
         solutionsFactories.put(9,    Solution_9_Palindrome_Number::new);
         //solutionsFactories.put(11,   Solution_11_Container_With_Most_Water::new);
