@@ -10,7 +10,7 @@ import leetcode.solutions.validation.SolutionValidationException;
 
 /**
  * {@code SolutionRunner} is the main class which hold solutions list and provides the solutions tests.
- * User can specify concrete solution to run ({@code --run=X} where X is a solution ID), or run all 
+ * User can specify concrete solution to run ({@code --run=X} where X is a solution ID), or run all
  * solutions one by one ({@code --runAll}). Use {@code --stats} to show statistics.
  * @author Daniil Kupriyanov
  */
@@ -19,7 +19,7 @@ public final class SolutionRunner {
 
     private final LinkedHashMap<Integer, SolutionsFactory<LeetcodeSolution>> solutionsFactories = new LinkedHashMap<>();
 
-    public void main(String[] args) {
+    public void main(String @NotNull [] args) {
         initSolutions();
         for (String arg : args) {
             if (arg.contains("--runAll")) {
