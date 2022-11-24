@@ -3,6 +3,8 @@ package leetcode.solutions.validation;
 import leetcode.solutions.LeetcodeSolution;
 import org.jetbrains.annotations.NotNull;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 
 /**
  * {@code SolutionValidator} used to validate solutions using static assertion methods. It is obtains the solution info
@@ -26,35 +28,44 @@ public final class SolutionValidator {
 
     public static void ASSERT_TRUE(boolean statement) throws SolutionValidationException {
         if (!statement) {
-            throwException("ASSERT_TRUE fails");
+            throwException("ASSERT_TRUE fails (expected: true, actual: false)");
         }
     };
 
     public static void ASSERT_FALSE(boolean statement) throws SolutionValidationException {
         if (statement) {
-            throwException("ASSERT_FALSE fails");
+            throwException("ASSERT_FALSE fails (expected: false, actual: true)");
         }
     };
 
-    public static void ASSERT_EQ(boolean expected, boolean actual) throws SolutionValidationException {
-        if (expected != actual) {
-            throwException("ASSERT_EQ fails");
+    public static void ASSERT_EQ(Object expected, Object actual) throws SolutionValidationException {
+        if (!expected.equals(actual)) {
+            throwException("ASSERT_EQ fails ");
         }
     }
 
-    public static void ASSERT_EQ(@NotNull Integer expected, @NotNull Integer actual) throws SolutionValidationException {
-        if (expected.compareTo(actual) != 0) {
-            throwException("ASSERT_EQ fails");
-        }
-    }
-
-    public static void ASSERT_EQ(int[] expected, int[] actual) throws SolutionValidationException { // TODO: use generics ?
+    public static void ASSERT_EQ(int[] expected, int[] actual)
+            throws SolutionValidationException { // TODO: use generics ?
         if (!Arrays.equals(expected, actual)) {
             throwException("ASSERT_EQ fails");
         }
     }
 
-    public static void ASSERT_STREQ(@NotNull String expected,@NotNull String actual) throws SolutionValidationException {
+    public static  void ASSERT_EQ(Object[] expected, Object[] actual) {
+        if (!Arrays.equals(expected, actual)) {
+            throwException("ASSERT_EQ fails");
+        }
+    }
+
+    public static <T extends Comparable<T>> void ASSERT_EQ(Collection<T> expected, Collection<T> actual)
+            throws SolutionValidationException {
+        if (!expected.equals(actual)) {
+            throwException("ASSERT_EQ fails");
+        }
+    }
+
+    public static void ASSERT_STREQ(@NotNull final String expected, @NotNull final String actual)
+            throws SolutionValidationException {
         if (expected.compareTo(actual) != 0) {
             throwException("ASSERT_STREQ fails (expected: " + expected + ", actual: " + actual + ")");
         }

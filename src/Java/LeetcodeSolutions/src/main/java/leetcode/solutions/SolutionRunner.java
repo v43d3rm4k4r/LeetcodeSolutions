@@ -17,9 +17,10 @@ import leetcode.solutions.validation.SolutionValidationException;
 
 public final class SolutionRunner {
 
-    private final LinkedHashMap<Integer, SolutionsFactory<LeetcodeSolution>> solutionsFactories = new LinkedHashMap<>();
+    private static final LinkedHashMap<Integer, SolutionsFactory<LeetcodeSolution>>
+            solutionsFactories = new LinkedHashMap<>();
 
-    public void main(String @NotNull [] args) {
+    public static void main(String @NotNull [] args) {
         initSolutions();
         for (String arg : args) {
             if (arg.contains("--runAll")) {
@@ -60,15 +61,15 @@ public final class SolutionRunner {
         }
     }
 
-    private void runAll() {
+    private static void runAll() {
         for (var solution : solutionsFactories.entrySet()) {
             out.printf("Running %s", solution);
             solution.getValue().create().run();
         }
     }
 
-    private int totalSolved;
-    private void showStats() {
+    private static int totalSolved;
+    private static void showStats() {
         int easy = 0, medium = 0, hard = 0;
         int time1 = 0, timeLogN = 0, timeN = 0, timeNLogN = 0, timeNM = 0, timeN2 = 0,
             timeNLogN2 = 0, timeN3 = 0, time2N = 0, timeNFactorial = 0;
@@ -149,7 +150,7 @@ public final class SolutionRunner {
         printfIfNotZero("O(N!)",        spaceNFactorial);
     }
 
-    private void printfIfNotZero(@NotNull String str, int value) {
+    private static void printfIfNotZero(@NotNull String str, int value) {
         if (value == 0) return;
         var percent = ((float)value / (float)totalSolved) * 100f;
         var delimiter = 2;
@@ -158,7 +159,7 @@ public final class SolutionRunner {
         out.printf("%-65s%d (%.2f%s)%n", str + ": " + " ".repeat(padding) + "#".repeat(sharpsCount), value, percent, "%");
     }
 
-    private void initSolutions() {
+    private static void initSolutions() {
         solutionsFactories.put(1,    Solution_1_Two_Sum::new);
         solutionsFactories.put(9,    Solution_9_Palindrome_Number::new);
         //solutionsFactories.put(11,   Solution_11_Container_With_Most_Water::new);
