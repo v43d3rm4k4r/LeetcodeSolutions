@@ -17,5 +17,6 @@ public enum Complexity {
     O_NlogN2,
     O_N3,          // O(N^3)
     O_2N,          // O(2^N)
+    O_KN,          // O(K^N)
     O_NFactorial
 }

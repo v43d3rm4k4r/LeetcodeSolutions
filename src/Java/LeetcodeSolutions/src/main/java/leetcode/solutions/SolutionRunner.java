@@ -15,6 +15,8 @@ import leetcode.solutions.validation.SolutionValidationException;
  * @author Daniil Kupriyanov
  */
 
+// TODO: Add problems tags
+
 public final class SolutionRunner {
 
     private static final LinkedHashMap<Integer, SolutionsFactory<LeetcodeSolution>>
@@ -72,9 +74,9 @@ public final class SolutionRunner {
     private static void showStats() {
         int easy = 0, medium = 0, hard = 0;
         int time1 = 0, timeLogN = 0, timeN = 0, timeNLogN = 0, timeNM = 0, timeN2 = 0,
-            timeNLogN2 = 0, timeN3 = 0, time2N = 0, timeNFactorial = 0;
+            timeNLogN2 = 0, timeN3 = 0, time2N = 0, timeKN = 0, timeNFactorial = 0;
         int space1 = 0, spaceLogN = 0, spaceN = 0, spaceNLogN = 0, spaceNM = 0, spaceN2 = 0,
-                spaceNLogN2 = 0, spaceN3 = 0, space2N = 0, spaceNFactorial = 0;
+                spaceNLogN2 = 0, spaceN3 = 0, space2N = 0, spaceKN = 0, spaceNFactorial = 0;
         int totalProblems = 0;
 
         for (var solution : solutionsFactories.entrySet()) {
@@ -97,6 +99,7 @@ public final class SolutionRunner {
                     case O_NlogN2     -> ++timeNLogN2;
                     case O_N3         -> ++timeN3;
                     case O_2N         -> ++time2N;
+                    case O_KN         -> ++timeKN;
                     case O_NFactorial -> ++timeNFactorial;
                 }
             }
@@ -112,6 +115,7 @@ public final class SolutionRunner {
                     case O_NlogN2     -> ++spaceNLogN2;
                     case O_N3         -> ++spaceN3;
                     case O_2N         -> ++space2N;
+                    case O_KN         -> ++spaceKN;
                     case O_NFactorial -> ++spaceNFactorial;
                 }
                 ++totalSolved;
@@ -135,6 +139,7 @@ public final class SolutionRunner {
         printfIfNotZero("O(Nlog(N)^2)", timeNLogN2);
         printfIfNotZero("O(N^3)",       timeN3);
         printfIfNotZero("O(2N)",        time2N);
+        printfIfNotZero("O(K^N)",       timeKN);
         printfIfNotZero("O(N!)",        timeNFactorial);
 
         out.println("\nSpace complexity stats:");
@@ -147,6 +152,7 @@ public final class SolutionRunner {
         printfIfNotZero("O(Nlog(N)^2)", spaceNLogN2);
         printfIfNotZero("O(N^3)",       spaceN3);
         printfIfNotZero("O(2N)",        space2N);
+        printfIfNotZero("O(K^N)",       spaceKN);
         printfIfNotZero("O(N!)",        spaceNFactorial);
     }
 
@@ -166,6 +172,7 @@ public final class SolutionRunner {
         solutionsFactories.put(12,   Solution_12_Integer_to_Roman::new);
         solutionsFactories.put(13,   Solution_13_Roman_to_Integer::new);
         solutionsFactories.put(20,   Solution_20_Valid_Parentheses::new);
+        solutionsFactories.put(22,   Solution_22_Generate_Parentheses::new);
         solutionsFactories.put(32,   Solution_32_Longest_Valid_Parentheses::new);
         solutionsFactories.put(35,   Solution_35_Search_Insert_Position::new);
         // TODO: solutionsFactories.put(46,   Solution_46_Permutations::new);
