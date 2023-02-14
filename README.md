@@ -1,6 +1,6 @@
 # LeetcodeSolutions
 Repository for mastering Java, Kotlin and algorithms.
-It is a tiny framework for running and testing specified solutions from leetcode. All the main components and some of the solutions itself are written in Java, but most of the solutions are written in Kotlin.
+It is a tiny framework for running and testing specified solutions from leetcode.com. All the main components and some of the solutions itself are written in Java, but most of the solutions are written in Kotlin.
 
 [![vaedermakar's LeetCode stats](https://leetcode-stats-six.vercel.app/api?username=vaedermakar&theme=dark)](https://github.com/vaedermakar/leetcode-stats)
 
