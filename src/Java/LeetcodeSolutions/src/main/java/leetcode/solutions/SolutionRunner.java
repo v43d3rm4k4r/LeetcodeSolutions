@@ -175,6 +175,7 @@ public final class SolutionRunner {
         solutionsFactories.put(22,   Solution_22_Generate_Parentheses::new);
         solutionsFactories.put(32,   Solution_32_Longest_Valid_Parentheses::new);
         solutionsFactories.put(35,   Solution_35_Search_Insert_Position::new);
+        solutionsFactories.put(36,   Solution_36_Valid_Sudoku::new);
         // TODO: solutionsFactories.put(46,   Solution_46_Permutations::new);
         solutionsFactories.put(66,   Solution_66_Plus_One::new);
         solutionsFactories.put(125,  Solution_125_Valid_Palindrome::new);
