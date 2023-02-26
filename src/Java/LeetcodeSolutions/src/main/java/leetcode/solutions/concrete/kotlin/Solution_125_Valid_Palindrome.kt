@@ -3,7 +3,6 @@ package leetcode.solutions.concrete.kotlin
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
 import leetcode.solutions.validation.SolutionValidator.*
-import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
 
@@ -37,7 +36,7 @@ import leetcode.solutions.annotations.ProblemSolution
 
 class Solution_125_Valid_Palindrome : LeetcodeSolution(EASY) {
 
-    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_N)
+    @ProblemSolution(timeComplexity = "O(N)", spaceComplexity = "O(N)")
     private fun isPalindrome1(s: String): Boolean {
         val filteredStr = StringBuilder()
         for (i in s.indices) {
@@ -56,7 +55,7 @@ class Solution_125_Valid_Palindrome : LeetcodeSolution(EASY) {
         return true
     }
 
-    @ProblemSolution(timeComplexity = O_N, spaceComplexity =  O_1)
+    @ProblemSolution(timeComplexity = "O(N)", spaceComplexity =  "O(1)")
     private fun isPalindrome2(s: String): Boolean {
         var i = 0
         var j = s.length - 1

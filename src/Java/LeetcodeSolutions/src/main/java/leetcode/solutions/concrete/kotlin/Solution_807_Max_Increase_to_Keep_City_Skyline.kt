@@ -3,7 +3,6 @@ package leetcode.solutions.concrete.kotlin
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
 import leetcode.solutions.validation.SolutionValidator.*
-import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
 
@@ -43,7 +42,7 @@ import leetcode.solutions.annotations.ProblemSolution
 
 class Solution_807_Max_Increase_to_Keep_City_Skyline : LeetcodeSolution(MEDIUM) {
 
-    @ProblemSolution(timeComplexity = O_N2, spaceComplexity = O_N)
+    @ProblemSolution(timeComplexity = "O(N^2)", spaceComplexity = "O(N)")
     fun maxIncreaseKeepingSkyline(grid: Array<IntArray>): Int {
         val rowMaxes = Array(grid.size) { 0 }
         val colMaxes = Array(grid.size) { 0 }

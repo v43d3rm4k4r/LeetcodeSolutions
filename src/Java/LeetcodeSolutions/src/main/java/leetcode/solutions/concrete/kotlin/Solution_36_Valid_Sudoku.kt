@@ -3,7 +3,6 @@ package leetcode.solutions.concrete.kotlin
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
 import leetcode.solutions.validation.SolutionValidator.*
-import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
 
@@ -30,9 +29,9 @@ import leetcode.solutions.annotations.ProblemSolution
  * field in just one pass. When using strings, you need to be aware of collisions, so the patterns for each
  * property are different.
  *
- * __Time:__ O(N)
+ * __Time:__ O(1)
  *
- * __Space:__ O(N)
+ * __Space:__ O(1)
  *
  *
  * @author Daniil Kupriyanov
@@ -40,7 +39,7 @@ import leetcode.solutions.annotations.ProblemSolution
 
 class Solution_36_Valid_Sudoku : LeetcodeSolution(MEDIUM) {
 
-    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_N)
+    @ProblemSolution(timeComplexity = "O(1)", spaceComplexity = "O(1)")
     fun isValidSudoku(board: Array<CharArray>): Boolean {
         val seen = HashSet<String>()
         for ((rowIdx, row) in board.withIndex()) {

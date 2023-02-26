@@ -3,7 +3,6 @@ package leetcode.solutions.concrete.kotlin
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
 import leetcode.solutions.validation.SolutionValidator.*
-import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
 
@@ -30,7 +29,7 @@ import leetcode.solutions.annotations.ProblemSolution
 
 class Solution_32_Longest_Valid_Parentheses : LeetcodeSolution(HARD) {
 
-   @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_1)
+   @ProblemSolution(timeComplexity = "O(N)", spaceComplexity = "O(1)")
     private fun longestValidParentheses(s: String): Int {
         if (s.length < 2) return 0
         var leftsCounter = 0; var rightsCounter = 0; var result = 0

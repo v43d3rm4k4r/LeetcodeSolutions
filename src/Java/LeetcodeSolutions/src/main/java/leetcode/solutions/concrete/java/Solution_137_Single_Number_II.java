@@ -4,10 +4,8 @@ import leetcode.solutions.*;
 import leetcode.solutions.annotations.ProblemInputData;
 import leetcode.solutions.annotations.ProblemSolution;
 import org.jetbrains.annotations.NotNull;
-
 import static leetcode.solutions.ProblemDifficulty.*;
 import static leetcode.solutions.validation.SolutionValidator.*;
-import static leetcode.solutions.complexity.Complexity.*;
 
 /**
  * @Problem: Given an integer array nums where every element appears three times except for one, which appears exactly
@@ -32,7 +30,7 @@ public final class Solution_137_Single_Number_II extends LeetcodeSolution {
 
     public Solution_137_Single_Number_II() { super(MEDIUM); }
 
-    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_1)
+    @ProblemSolution(timeComplexity = "O(N)", spaceComplexity = "O(1)")
     private int singleNumber(int @NotNull [] nums) {
         int ones = 0, twos = 0;
         for (var num : nums) {

@@ -4,10 +4,8 @@ import leetcode.solutions.*;
 import leetcode.solutions.annotations.ProblemInputData;
 import leetcode.solutions.annotations.ProblemSolution;
 import org.jetbrains.annotations.NotNull;
-
 import static leetcode.solutions.ProblemDifficulty.*;
 import static leetcode.solutions.validation.SolutionValidator.*;
-import static leetcode.solutions.complexity.Complexity.*;
 
 /**
  * @Problem: Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
@@ -31,7 +29,7 @@ public final class Solution_136_Single_Number extends LeetcodeSolution {
 
     public Solution_136_Single_Number() { super(EASY); }
 
-    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_1)
+    @ProblemSolution(timeComplexity = "O(N)", spaceComplexity = "O(1)")
     private int singleNumber(int @NotNull [] nums) {
         var result = 0;
         for (var i = 0; i < nums.length; ++i) {

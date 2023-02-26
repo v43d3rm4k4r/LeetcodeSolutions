@@ -3,7 +3,6 @@ package leetcode.solutions.concrete.kotlin
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
 import leetcode.solutions.validation.SolutionValidator.*
-import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
 
@@ -31,7 +30,7 @@ import leetcode.solutions.annotations.ProblemSolution
 
 class Solution_13_Roman_to_Integer : LeetcodeSolution(EASY) {
 
-    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_1)
+    @ProblemSolution(timeComplexity = "O(N)", spaceComplexity = "O(1)")
     private fun romanToInt(s: String): Int {
         var result = 0
         var charBefore = '0'

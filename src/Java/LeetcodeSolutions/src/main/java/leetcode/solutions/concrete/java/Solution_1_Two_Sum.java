@@ -3,10 +3,8 @@ package leetcode.solutions.concrete.java;
 import leetcode.solutions.*;
 import leetcode.solutions.annotations.ProblemInputData;
 import leetcode.solutions.annotations.ProblemSolution;
-
 import static leetcode.solutions.ProblemDifficulty.*;
 import static leetcode.solutions.validation.SolutionValidator.*;
-import static leetcode.solutions.complexity.Complexity.*;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -36,7 +34,7 @@ public final class Solution_1_Two_Sum extends LeetcodeSolution {
 
     public Solution_1_Two_Sum() { super(EASY); }
 
-    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_1)
+    @ProblemSolution(timeComplexity = "O(N)", spaceComplexity = "O(1)")
     private int[] twoSum(int[] nums, int target) {
         var numToIndex = new HashMap<Integer, Integer>();
         for (var i = 0; i < nums.length; ++i) {

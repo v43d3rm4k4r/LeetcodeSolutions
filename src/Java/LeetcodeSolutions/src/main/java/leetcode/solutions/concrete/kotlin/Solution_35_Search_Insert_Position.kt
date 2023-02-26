@@ -3,7 +3,6 @@ package leetcode.solutions.concrete.kotlin
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
 import leetcode.solutions.validation.SolutionValidator.*
-import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
 
@@ -30,7 +29,7 @@ import leetcode.solutions.annotations.ProblemSolution
 
 class Solution_35_Search_Insert_Position : LeetcodeSolution(EASY) {
 
-    @ProblemSolution(timeComplexity = O_logN, spaceComplexity = O_1)
+    @ProblemSolution(timeComplexity = "O(logN)", spaceComplexity = "O(1)")
     private fun searchInsert(nums: IntArray, target: Int): Int {
         var left  = 0
         var mid   = -1

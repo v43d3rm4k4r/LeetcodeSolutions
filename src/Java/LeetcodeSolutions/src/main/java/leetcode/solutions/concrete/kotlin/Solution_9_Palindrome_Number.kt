@@ -3,7 +3,6 @@ package leetcode.solutions.concrete.kotlin
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
 import leetcode.solutions.validation.SolutionValidator.*
-import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
 
@@ -35,7 +34,7 @@ import leetcode.solutions.annotations.ProblemSolution
 
 class Solution_9_Palindrome_Number : LeetcodeSolution(EASY) {
 
-    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_1)
+    @ProblemSolution(timeComplexity = "O(N)", spaceComplexity = "O(1)")
     private fun isPalindrome1(x: Int): Boolean {
         if (x < 0 || (x > 0 && (x % 10 == 0))) return false
         val asString = x.toString()
@@ -50,7 +49,7 @@ class Solution_9_Palindrome_Number : LeetcodeSolution(EASY) {
         return true
     }
 
-    @ProblemSolution(timeComplexity = O_logN, spaceComplexity = O_1)
+    @ProblemSolution(timeComplexity = "O(logN)", spaceComplexity = "O(1)")
     private fun isPalindrome2(x: Int): Boolean {
         if (x < 0 || (x > 0 && (x % 10 == 0))) return false
         var xCpy = x; var rhs = 0
