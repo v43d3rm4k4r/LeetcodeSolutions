@@ -3,7 +3,6 @@ package leetcode.solutions.concrete.kotlin
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
 import leetcode.solutions.validation.SolutionValidator.*
-import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
 import kotlin.math.log10
@@ -40,7 +39,7 @@ import kotlin.math.log10
 
 class Solution_66_Plus_One : LeetcodeSolution(EASY) {
 
-    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_N)
+    @ProblemSolution(timeComplexity = "O(N)", spaceComplexity = "O(N)")
     private fun plusOne1(digits: IntArray): IntArray {
         var asInteger = 0
         var digit = 1
@@ -58,7 +57,7 @@ class Solution_66_Plus_One : LeetcodeSolution(EASY) {
         return result.toIntArray()
     }
 
-    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_N)
+    @ProblemSolution(timeComplexity = "O(N)", spaceComplexity = "O(N)")
     private fun plusOne2(digits: IntArray): IntArray {
         for (i in digits.indices.reversed()) {
             if (digits[i] == 9) {

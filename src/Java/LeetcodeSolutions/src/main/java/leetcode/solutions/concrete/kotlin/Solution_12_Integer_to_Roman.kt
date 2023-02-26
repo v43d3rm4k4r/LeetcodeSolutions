@@ -3,7 +3,6 @@ package leetcode.solutions.concrete.kotlin
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
 import leetcode.solutions.validation.SolutionValidator.*
-import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
 import leetcode.solutions.annotations.ProblemSolutionData
@@ -39,7 +38,7 @@ import kotlin.math.log10
 
 class Solution_12_Integer_to_Roman : LeetcodeSolution(MEDIUM) {
 
-    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_1)
+    @ProblemSolution(timeComplexity = "O(N)", spaceComplexity = "O(1)")
     private fun intToRoman1(num: Int): String {
         var numCopy = num
         var digit: Int
@@ -94,7 +93,7 @@ class Solution_12_Integer_to_Roman : LeetcodeSolution(MEDIUM) {
         return result
     }
 
-    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_1)
+    @ProblemSolution(timeComplexity = "O(N)", spaceComplexity = "O(1)")
     private fun intToRoman2(num: Int): String {
         var number = num
         var position = 0

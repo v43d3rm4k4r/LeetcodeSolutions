@@ -3,7 +3,6 @@ package leetcode.solutions.concrete.kotlin
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
 import leetcode.solutions.validation.SolutionValidator.*
-import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
 import leetcode.solutions.annotations.ProblemSolutionCompanionMethod
@@ -27,7 +26,7 @@ import leetcode.solutions.annotations.ProblemSolutionCompanionMethod
 
 class Solution_22_Generate_Parentheses : LeetcodeSolution(MEDIUM) {
 
-    @ProblemSolution(timeComplexity = O_KN, spaceComplexity = O_KN)
+    @ProblemSolution(timeComplexity = "O(K^N)", spaceComplexity = "O(K^N)")
     private fun generateParenthesis(n: Int): List<String> {
         val parentheses = mutableListOf<String>()
         doGenerate(parentheses, "", 0, 0, n)

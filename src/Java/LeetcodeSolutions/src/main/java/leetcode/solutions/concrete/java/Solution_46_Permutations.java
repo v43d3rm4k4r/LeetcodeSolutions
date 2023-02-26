@@ -4,7 +4,8 @@ import leetcode.solutions.*;
 import leetcode.solutions.annotations.ProblemInputData;
 import leetcode.solutions.annotations.ProblemSolution;
 import leetcode.solutions.annotations.ProblemSolutionCompanionMethod;
-import leetcode.solutions.annotations.ProblemSolutionData;
+import leetcode.solutions.annotations.ProblemSolutionData
+        ;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
@@ -12,7 +13,6 @@ import java.util.stream.Collectors;
 
 import static leetcode.solutions.ProblemDifficulty.*;
 import static leetcode.solutions.validation.SolutionValidator.*;
-import static leetcode.solutions.complexity.Complexity.*;
 
 // To solve this one we will use recursion tree
 
@@ -22,7 +22,7 @@ public final class Solution_46_Permutations extends LeetcodeSolution {
 
     private final @ProblemSolutionData ArrayList<List<Integer>> _result = new ArrayList<>();
 
-    @ProblemSolution(timeComplexity = O_NFactorial, spaceComplexity = O_N)
+    @ProblemSolution(timeComplexity = "O(N!)", spaceComplexity = "O(N)")
     private void backtrack(@NotNull List<Integer> nums, int index) {
         if (index == nums.size()) {
             _result.add(nums);

@@ -3,7 +3,6 @@ package leetcode.solutions.concrete.kotlin
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
 import leetcode.solutions.validation.SolutionValidator.*
-import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
 
@@ -40,7 +39,7 @@ import leetcode.solutions.annotations.ProblemSolution
 
 class Solution_2125_Number_of_Laser_Beams_in_a_Bank : LeetcodeSolution(MEDIUM) {
 
-    @ProblemSolution(timeComplexity = O_NM, spaceComplexity = O_1)
+    @ProblemSolution(timeComplexity = "O(N*M)", spaceComplexity = "O(1)")
     fun numberOfBeams(bank: Array<String>): Int {
         var lastRowDevices = 0
         var currentRowDevices = 0

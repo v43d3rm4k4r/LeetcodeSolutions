@@ -3,7 +3,6 @@ package leetcode.solutions.concrete.kotlin
 import leetcode.solutions.*
 import leetcode.solutions.ProblemDifficulty.*
 import leetcode.solutions.validation.SolutionValidator.*
-import leetcode.solutions.complexity.Complexity.*
 import leetcode.solutions.annotations.ProblemInputData
 import leetcode.solutions.annotations.ProblemSolution
 import leetcode.solutions.annotations.ProblemSolutionData
@@ -39,7 +38,7 @@ class Solution_20_Valid_Parentheses : LeetcodeSolution(EASY) {
         CURLY_BRACKETS,
     }
 
-    @ProblemSolution(timeComplexity = O_N, spaceComplexity = O_N)
+    @ProblemSolution(timeComplexity = "O(N)", spaceComplexity = "O(N)")
     private fun isValid(s: String): Boolean {
         if (s.length < 2) return false
         val bracketsStack = LinkedList<BracketType>() // no need in slow java.util.Stack

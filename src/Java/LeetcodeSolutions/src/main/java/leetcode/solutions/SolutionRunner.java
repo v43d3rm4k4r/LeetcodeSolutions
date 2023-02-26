@@ -37,9 +37,9 @@ public final class SolutionRunner {
                 }
                 break;
             } else if (arg.contains("--run=")) {
-                var solutionToRun = Integer.parseInt(arg.substring(6));
+               final var solutionToRun = Integer.parseInt(arg.substring(6));
                 try {
-                    var solution = solutionsFactories.get(solutionToRun);
+                    final var solution = solutionsFactories.get(solutionToRun);
                     if (solution == null)
                         throw new NoSuchSolutionException("There is no solution with '" + solutionToRun + "' ID");
                     out.printf("Running %s", solution);
@@ -64,104 +64,110 @@ public final class SolutionRunner {
     }
 
     private static void runAll() {
-        for (var solution : solutionsFactories.entrySet()) {
+        for (final var solution : solutionsFactories.entrySet()) {
             out.printf("Running %s", solution);
             solution.getValue().create().run();
         }
     }
 
-    private static int totalSolved;
+    private static int totalAccepted;
     private static void showStats() {
         int easy = 0, medium = 0, hard = 0;
         int time1 = 0, timeLogN = 0, timeN = 0, timeNLogN = 0, timeNM = 0, timeN2 = 0,
-            timeNLogN2 = 0, timeN3 = 0, time2N = 0, timeKN = 0, timeNFactorial = 0;
+            timeNLogN2 = 0, timeN3 = 0, time2N = 0, timeKN = 0, timeNFactorial = 0,
+                timeUnknown = 0;
         int space1 = 0, spaceLogN = 0, spaceN = 0, spaceNLogN = 0, spaceNM = 0, spaceN2 = 0,
-                spaceNLogN2 = 0, spaceN3 = 0, space2N = 0, spaceKN = 0, spaceNFactorial = 0;
+                spaceNLogN2 = 0, spaceN3 = 0, space2N = 0, spaceKN = 0, spaceNFactorial = 0,
+                spaceUnknown = 0;
         int totalProblems = 0;
 
-        for (var solution : solutionsFactories.entrySet()) {
-            var concreteSolution = solution.getValue().create();
+        for (final var solution : solutionsFactories.entrySet()) {
+            final var concreteSolution = solution.getValue().create();
 
-            var difficulty = concreteSolution.getProblemDifficulty();
+            final var difficulty = concreteSolution.getProblemDifficulty();
             if (difficulty == ProblemDifficulty.EASY)        ++easy;
             else if (difficulty == ProblemDifficulty.MEDIUM) ++medium;
             else if (difficulty == ProblemDifficulty.HARD)   ++hard;
 
-            var timeComplexities = concreteSolution.getSolutionTimeComplexities();
-            for (var complexity : timeComplexities) {
+            final var timeComplexities = concreteSolution.getSolutionTimeComplexities();
+            for (final var complexity : timeComplexities) {
                 switch (complexity) {
-                    case O_1          -> ++time1;
-                    case O_logN       -> ++timeLogN;
-                    case O_N          -> ++timeN;
-                    case O_NlogN      -> ++timeNLogN;
-                    case O_NM         -> ++timeNM;
-                    case O_N2         -> ++timeN2;
-                    case O_NlogN2     -> ++timeNLogN2;
-                    case O_N3         -> ++timeN3;
-                    case O_2N         -> ++time2N;
-                    case O_KN         -> ++timeKN;
-                    case O_NFactorial -> ++timeNFactorial;
+                    case "O(1)"        -> ++time1;
+                    case "O(logN)"     -> ++timeLogN;
+                    case "O(N)"        -> ++timeN;
+                    case "O(N*logN)"   -> ++timeNLogN;
+                    case "O(N*M)"      -> ++timeNM;
+                    case "O(N^2)"      -> ++timeN2;
+                    case "O(N*logN^2)" -> ++timeNLogN2;
+                    case "O(N^3)"      -> ++timeN3;
+                    case "O(2^N)"      -> ++time2N;
+                    case "O(K^N)"      -> ++timeKN;
+                    case "O(N!)"       -> ++timeNFactorial;
+                    default            -> ++timeUnknown;
                 }
             }
-            var spaceComplexities = concreteSolution.getSolutionSpaceComplexities();
-            for (var complexity : spaceComplexities) {
+            final var spaceComplexities = concreteSolution.getSolutionSpaceComplexities();
+            for (final var complexity : spaceComplexities) {
                 switch (complexity) {
-                    case O_1          -> ++space1;
-                    case O_logN       -> ++spaceLogN;
-                    case O_N          -> ++spaceN;
-                    case O_NlogN      -> ++spaceNLogN;
-                    case O_NM         -> ++spaceNM;
-                    case O_N2         -> ++spaceN2;
-                    case O_NlogN2     -> ++spaceNLogN2;
-                    case O_N3         -> ++spaceN3;
-                    case O_2N         -> ++space2N;
-                    case O_KN         -> ++spaceKN;
-                    case O_NFactorial -> ++spaceNFactorial;
+                    case "O(1)"        -> ++space1;
+                    case "O(logN)"     -> ++spaceLogN;
+                    case "O(N)"        -> ++spaceN;
+                    case "O(N*logN)"   -> ++spaceNLogN;
+                    case "O(N*M)"      -> ++spaceNM;
+                    case "O(N^2)"      -> ++spaceN2;
+                    case "O(N*logN^2)" -> ++spaceNLogN2;
+                    case "O(N^3)"      -> ++spaceN3;
+                    case "O(2^N)"      -> ++space2N;
+                    case "O(K^N)"      -> ++spaceKN;
+                    case "O(N!)"       -> ++spaceNFactorial;
+                    default            -> ++spaceUnknown;
                 }
-                ++totalSolved;
+                ++totalAccepted;
             }
             ++totalProblems;
         }
 
-        out.println("\nTotal solutions accepted: " + totalSolved);
+        out.println("\nTotal solutions accepted: " + totalAccepted);
         out.println("Total problems solved: " + totalProblems);
         out.println("Easy: "   + easy);
         out.println("Medium: " + medium);
         out.println("Hard: "   + hard);
 
         out.println("\nTime complexity stats:");
-        printfIfNotZero("O(1)",         time1);
-        printfIfNotZero("O(log(N))",    timeLogN);
-        printfIfNotZero("O(N)",         timeN);
-        printfIfNotZero("O(Nlog(N))",   timeNLogN);
-        printfIfNotZero("O(N*M)",       timeNM);
-        printfIfNotZero("O(N^2)",       timeN2);
-        printfIfNotZero("O(Nlog(N)^2)", timeNLogN2);
-        printfIfNotZero("O(N^3)",       timeN3);
-        printfIfNotZero("O(2N)",        time2N);
-        printfIfNotZero("O(K^N)",       timeKN);
-        printfIfNotZero("O(N!)",        timeNFactorial);
+        printfIfNotZero("O(1)",        time1);
+        printfIfNotZero("O(logN)",     timeLogN);
+        printfIfNotZero("O(N)",        timeN);
+        printfIfNotZero("O(N*logN)",   timeNLogN);
+        printfIfNotZero("O(N*M)",      timeNM);
+        printfIfNotZero("O(N^2)",      timeN2);
+        printfIfNotZero("O(N*logN^2)", timeNLogN2);
+        printfIfNotZero("O(N^3)",      timeN3);
+        printfIfNotZero("O(2^N)",      time2N);
+        printfIfNotZero("O(K^N)",      timeKN);
+        printfIfNotZero("O(N!)",       timeNFactorial);
+        printfIfNotZero("[Unknown]",   timeUnknown);
 
         out.println("\nSpace complexity stats:");
-        printfIfNotZero("O(1)",         space1);
-        printfIfNotZero("O(log(N))",    spaceLogN);
-        printfIfNotZero("O(N)",         spaceN);
-        printfIfNotZero("O(Nlog(N))",   spaceNLogN);
-        printfIfNotZero("O(N*M)",       spaceNM);
-        printfIfNotZero("O(N^2)",       spaceN2);
-        printfIfNotZero("O(Nlog(N)^2)", spaceNLogN2);
-        printfIfNotZero("O(N^3)",       spaceN3);
-        printfIfNotZero("O(2N)",        space2N);
-        printfIfNotZero("O(K^N)",       spaceKN);
-        printfIfNotZero("O(N!)",        spaceNFactorial);
+        printfIfNotZero("O(1)",        space1);
+        printfIfNotZero("O(logN)",     spaceLogN);
+        printfIfNotZero("O(N)",        spaceN);
+        printfIfNotZero("O(N*logN)",   spaceNLogN);
+        printfIfNotZero("O(N*M)",      spaceNM);
+        printfIfNotZero("O(N^2)",      spaceN2);
+        printfIfNotZero("O(N*logN^2)", spaceNLogN2);
+        printfIfNotZero("O(N^3)",      spaceN3);
+        printfIfNotZero("O(2^N)",      space2N);
+        printfIfNotZero("O(K^N)",      spaceKN);
+        printfIfNotZero("O(N!)",       spaceNFactorial);
+        printfIfNotZero("[Unknown]",   spaceUnknown);
     }
 
     private static void printfIfNotZero(@NotNull String str, int value) {
         if (value == 0) return;
-        var percent = ((float)value / (float)totalSolved) * 100f;
-        var delimiter = 2;
-        var sharpsCount = (int)percent / delimiter; // 2% == one sharp
-        var padding = 10 - str.length();
+        final var percent = ((float)value / (float) totalAccepted) * 100f;
+        final var delimiter = 2;
+        final var sharpsCount = (int)percent / delimiter; // 2% == one sharp
+        final var padding = 10 - str.length();
         out.printf("%-65s%d (%.2f%s)%n", str + ": " + " ".repeat(padding) + "#".repeat(sharpsCount), value, percent, "%");
     }
 
