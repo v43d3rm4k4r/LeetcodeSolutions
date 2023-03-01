@@ -5,7 +5,7 @@ It is a tiny framework for running and testing specified solutions from leetcode
 [![vaedermakar's LeetCode stats](https://leetcode-stats-six.vercel.app/api?username=vaedermakar&theme=dark)](https://github.com/v43d3rm4k4r/leetcode-stats)
 
 ## Features:
-- Concrete solution running (use `--run=N` arg, where N is solution ID);
+- Concrete solution running (use `--run=N` arg, where N is problem ID);
 - All solutions running (`--runAll`);
 - Showing overall stats (`--stats`):  
     - Total solutions count;
