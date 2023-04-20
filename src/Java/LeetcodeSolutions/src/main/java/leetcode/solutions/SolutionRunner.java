@@ -177,6 +177,7 @@ public final class SolutionRunner {
         //solutionsFactories.put(11,   Solution_11_Container_With_Most_Water::new);
         solutionsFactories.put(12,   Solution_12_Integer_to_Roman::new);
         solutionsFactories.put(13,   Solution_13_Roman_to_Integer::new);
+        solutionsFactories.put(14,   Solution_14_Longest_Common_Prefix::new);
         solutionsFactories.put(20,   Solution_20_Valid_Parentheses::new);
         solutionsFactories.put(22,   Solution_22_Generate_Parentheses::new);
         solutionsFactories.put(32,   Solution_32_Longest_Valid_Parentheses::new);

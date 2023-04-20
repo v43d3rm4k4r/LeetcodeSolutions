@@ -18,6 +18,10 @@ dependencies {
     implementation("org.jetbrains:annotations:23.0.0")
     implementation(kotlin("stdlib-jdk8"))
 }
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
 
 tasks.getByName<Test>("test") {
     useJUnitPlatform()
