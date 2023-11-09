@@ -40,6 +40,7 @@ public final class SolutionRunner {
         solutionsFactories.put(125,  Solution_125_Valid_Palindrome::new);
         solutionsFactories.put(136,  Solution_136_Single_Number::new);
         solutionsFactories.put(137,  Solution_137_Single_Number_II::new);
+        solutionsFactories.put(344,  Solution_344_Reverse_String::new);
         solutionsFactories.put(807,  Solution_807_Max_Increase_to_Keep_City_Skyline::new);
         solutionsFactories.put(2125, Solution_2125_Number_of_Laser_Beams_in_a_Bank::new);
     }
