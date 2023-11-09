@@ -22,6 +22,28 @@ public final class SolutionRunner {
     private static final LinkedHashMap<Integer, SolutionsFactory<LeetcodeSolution>>
             solutionsFactories = new LinkedHashMap<>();
 
+    private static void initSolutions() {
+        solutionsFactories.put(1,    Solution_1_Two_Sum::new);
+        solutionsFactories.put(9,    Solution_9_Palindrome_Number::new);
+        //solutionsFactories.put(11,   Solution_11_Container_With_Most_Water::new);
+        solutionsFactories.put(12,   Solution_12_Integer_to_Roman::new);
+        solutionsFactories.put(13,   Solution_13_Roman_to_Integer::new);
+        solutionsFactories.put(14,   Solution_14_Longest_Common_Prefix::new);
+        solutionsFactories.put(20,   Solution_20_Valid_Parentheses::new);
+        solutionsFactories.put(21,   Solution_21_Merge_Two_Sorted_Lists::new);
+        solutionsFactories.put(22,   Solution_22_Generate_Parentheses::new);
+        solutionsFactories.put(32,   Solution_32_Longest_Valid_Parentheses::new);
+        solutionsFactories.put(35,   Solution_35_Search_Insert_Position::new);
+        solutionsFactories.put(36,   Solution_36_Valid_Sudoku::new);
+        // TODO: solutionsFactories.put(46,   Solution_46_Permutations::new);
+        solutionsFactories.put(66,   Solution_66_Plus_One::new);
+        solutionsFactories.put(125,  Solution_125_Valid_Palindrome::new);
+        solutionsFactories.put(136,  Solution_136_Single_Number::new);
+        solutionsFactories.put(137,  Solution_137_Single_Number_II::new);
+        solutionsFactories.put(807,  Solution_807_Max_Increase_to_Keep_City_Skyline::new);
+        solutionsFactories.put(2125, Solution_2125_Number_of_Laser_Beams_in_a_Bank::new);
+    }
+
     public static void main(String @NotNull [] args) {
         initSolutions();
         for (String arg : args) {
@@ -169,26 +191,5 @@ public final class SolutionRunner {
         final var sharpsCount = (int)percent / delimiter; // 2% == one sharp
         final var padding = 10 - str.length();
         out.printf("%-65s%d (%.2f%s)%n", str + ": " + " ".repeat(padding) + "#".repeat(sharpsCount), value, percent, "%");
-    }
-
-    private static void initSolutions() {
-        solutionsFactories.put(1,    Solution_1_Two_Sum::new);
-        solutionsFactories.put(9,    Solution_9_Palindrome_Number::new);
-        //solutionsFactories.put(11,   Solution_11_Container_With_Most_Water::new);
-        solutionsFactories.put(12,   Solution_12_Integer_to_Roman::new);
-        solutionsFactories.put(13,   Solution_13_Roman_to_Integer::new);
-        solutionsFactories.put(14,   Solution_14_Longest_Common_Prefix::new);
-        solutionsFactories.put(20,   Solution_20_Valid_Parentheses::new);
-        solutionsFactories.put(22,   Solution_22_Generate_Parentheses::new);
-        solutionsFactories.put(32,   Solution_32_Longest_Valid_Parentheses::new);
-        solutionsFactories.put(35,   Solution_35_Search_Insert_Position::new);
-        solutionsFactories.put(36,   Solution_36_Valid_Sudoku::new);
-        // TODO: solutionsFactories.put(46,   Solution_46_Permutations::new);
-        solutionsFactories.put(66,   Solution_66_Plus_One::new);
-        solutionsFactories.put(125,  Solution_125_Valid_Palindrome::new);
-        solutionsFactories.put(136,  Solution_136_Single_Number::new);
-        solutionsFactories.put(137,  Solution_137_Single_Number_II::new);
-        solutionsFactories.put(807,  Solution_807_Max_Increase_to_Keep_City_Skyline::new);
-        solutionsFactories.put(2125, Solution_2125_Number_of_Laser_Beams_in_a_Bank::new);
     }
 }

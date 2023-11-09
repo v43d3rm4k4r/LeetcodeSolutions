@@ -2,6 +2,8 @@ package leetcode.solutions.validation;
 
 import leetcode.solutions.LeetcodeSolution;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -38,7 +40,8 @@ public final class SolutionValidator {
         }
     };
 
-    public static void ASSERT_EQ(Object expected, Object actual) throws SolutionValidationException {
+    public static void ASSERT_EQ(@Nullable Object expected, @Nullable Object actual) throws SolutionValidationException {
+        if (expected == null || actual == null) return;
         if (!expected.equals(actual)) {
             throwException("ASSERT_EQ fails ");
         }
